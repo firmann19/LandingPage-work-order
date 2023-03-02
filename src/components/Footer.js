@@ -31,16 +31,7 @@ const Footer = () => {
               </div>
               <div className="footer col-lg-4 col-md-4 col-sm-6 mb-2">
                 <h6>Stay Tuned</h6>
-                {/* <div className='footer-social'>
-                                    <a href="/#"><FaFacebookSquare className='icon-footer'/></a>
-                                </div>
-                                <div className='footer-social'>
-                                    <a href="/#"><BsInstagram className='icon-footer'/></a>
-                                </div>
-                                <div className='footer-social'>
-                                    <a href="/#"><BsTwitter className='icon-footer'
-                                    /></a>
-                                </div> */}
+               
               </div>
               <hr />
               <p className="footer-copy">

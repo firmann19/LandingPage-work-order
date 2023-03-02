@@ -1,35 +1,38 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from "react";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Button from "react-bootstrap/Button";
+import NavbarLogo from "../assets/image/logo-hta.png";
 
-export default function Navigation() {
+function Navigation() {
   return (
-    <div>
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="bg-slate-300">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <div className="navbar-logo">
+          <img src={NavbarLogo} alt="logo-hta" height="80" width="35" />
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+        <Nav className="justify">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#services">Services</Nav.Link>
+          <Nav.Link href="#contactus">Contact Us</Nav.Link>
+          <Link to="/login">
+            <button className="w-28 h-9 rounded-full text-l font-medium bg-danger text-white">
+              Login
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="ms-3 w-28 h-9 rounded-full text-l font-medium bg-white text-black">
+              Register
+            </button>
+          </Link>
+        </Nav>
       </Container>
     </Navbar>
-    </div>
-  )
+  );
 }
+
+export default Navigation;

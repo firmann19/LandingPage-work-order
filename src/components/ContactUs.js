@@ -10,9 +10,9 @@ function ContactUs() {
         BeSmart dan layanan yang kami berikan
       </p>
       <section className="text-gray-700 body-font relative">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 mx-auto">
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
-            <div className="flex flex-wrap -m-2">
+            <div className="flex flex-wrap m-2">
               <div className="p-2 w-1/2">
                 <div className="relative">
                   <label for="name" className="leading-7 text-sm text-gray-600">

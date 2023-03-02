@@ -9,9 +9,9 @@ function Navigation() {
   return (
     <Navbar  className="navigation bg-slate-300">
       <Container>
-        <div className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src={NavbarLogo} alt="logo-hta" height="80" width="35" />
-        </div>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav className="justify">
           <Nav.Link href="#home">Home</Nav.Link>

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavbarLogo from "../assets/image/logo-HTA.png";
+import NavbarLogo from "../assets/image/logo-hta.png";
 
 function Navigation() {
   return (
-    <Navbar bg="light" expand="lg" className="bg-slate-300">
+    <Navbar  className="navigation bg-slate-300">
       <Container>
         <div className="navbar-logo">
           <img src={NavbarLogo} alt="logo-hta" height="80" width="35" />

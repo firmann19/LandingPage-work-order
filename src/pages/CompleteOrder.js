@@ -5,7 +5,7 @@ import completeImg from '../assets/image/complete-img.png'
 
 function CompleteOrder() {
   return (
-    <div id="loginPage" className="h-screen">
+    <div id="completeOrder" className="h-screen">
      <img
               src={completeImg}
               alt="complete illustration image."

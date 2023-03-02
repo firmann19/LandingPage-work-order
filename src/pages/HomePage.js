@@ -1,15 +1,21 @@
 import React from 'react';
+import ContactUs from '../components/ContactUs';
+import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 // import Footer from "../components/Footer";
-import  Navigation from '../components/Navigation';
+import ServiceList from '../components/ServiceList';
 
 const HomePage = () => {
   return (
-    <>
-    <Navigation />
+    <div id="homePage" >
+    <Navbar />
+    <Header />
+    <ServiceList />
+    <ContactUs />
     {/* <footer>
         <Footer />
     </footer> */}
-    </>
+    </div>
   )
 }
 

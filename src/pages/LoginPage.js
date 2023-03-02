@@ -9,7 +9,7 @@ function LoginPage() {
     <section id="loginPage" className="h-screen">
       <div className="flex flex-col items-center lg:flex-row lg:h-full">
         <div className="w-full self-center p-8 md:h-3/5 lg:w-2/5">
-          <h1 className="font-Philosopher font-bold text-4xl text-primary md:text-6xl lg:text-4xl text-center mb-3">Login</h1>
+          <h1 className="font-Philosopher font-bold text-4xl text-danger md:text-6xl lg:text-4xl text-center mb-3">Login</h1>
           <p className="font-Quicksand mt-2 mb-4 md:text-lg lg:text-base text-center">Please Login to continue into the application.</p>
           <LoginInput />
           <p className='text-center font-Quicksand mt-4 md:text-lg lg:text-base'>

@@ -13,7 +13,8 @@ function Navigation() {
           <img src={NavbarLogo} alt="logo-hta" height="80" width="35" />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav className="justify">
+        <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="ms-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#services">Services</Nav.Link>
           <Nav.Link href="#contactus">Contact Us</Nav.Link>
@@ -28,6 +29,7 @@ function Navigation() {
             </button>
           </Link>
         </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

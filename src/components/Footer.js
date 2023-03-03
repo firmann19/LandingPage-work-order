@@ -5,7 +5,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 const Footer = () => {
   return (
     <>
-      <div id="footer">
+      <div className="footer bg-slate-300">
         <div className="container-fluid py-4">
           <div className="container">
             <div className="row">

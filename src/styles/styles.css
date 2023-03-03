@@ -7,7 +7,7 @@
 @import './componentstyle/Footer.style.css';
 
 .bg-image {
-    background-image: url(../assets/image/bg-img.png);
+    /* background-image: url(../assets/image/img-header.png); */
     background-size: cover;
 }
 

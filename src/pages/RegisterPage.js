@@ -13,9 +13,9 @@ function registerPage() {
           <p className="font-Quicksand mt-2 mb-4 md:text-lg lg:text-base text-center text-center">create your account</p>
           <RegisterInput />
           <p className='text-center font-Quicksand mt-4 md:text-lg lg:text-base'>
-            Don&apos;t have an account?
+            Sudah punya akun? 
             {' '}
-            <Link className='underline text-link hover:text-linkHover' to="/register">Register</Link>
+            <Link className='underline text-link hover:text-linkHover' to="/register">Login</Link>
           </p>
         </div>
         <div className="w-full bg-slate-50 flex items-center md:h-2/5 lg:w-3/5 lg:h-full">

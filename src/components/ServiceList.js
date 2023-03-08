@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceItem from "./ServiceItem";
 // import ImgHardware from '../assets/image/hardware.png'
-import ImgSoftware from '../assets/image/software.png'
+import ImgSoftware from '../assets/image/hardware.png'
 
 function ServiceList(props) {
   return (
@@ -12,7 +12,7 @@ function ServiceList(props) {
       </p>
       <div className="flex gap-18 mx-20 py-5 justify-center">
          <ServiceItem 
-           img={ImgSoftware}
+           img={ImgSoftware} 
            title="Repair Technology"
          />
          

@@ -15,16 +15,6 @@
     color: #0C145A;
 }
 
-#footer p {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #0C145A;
-    margin-top: -10px;
-}
 
 #footer hr {
     color: #FF0030;
@@ -70,4 +60,8 @@
 
 .footer-p {
     text-align: center;
+}
+
+.footer-layanan {
+    padding-bottom: -10px;
 }

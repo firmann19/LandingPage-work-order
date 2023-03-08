@@ -26,11 +26,14 @@ const Footer = () => {
                 <p>021-29006990</p>
               </div>
               <div className="footer col-lg-4 col-md-4 col-sm-6 mb-2">
-                <h6>Stay Tuned</h6>
-               
+                <h6>Layanan</h6>
+                <p>Troubleshoot PC</p>
+                <p>Troubleshoot Network</p>
+                <p>DataBase & Server</p>
+                <p>Other</p>
               </div>
               <hr />
-              <p className="footer-copy">
+              <p className="footer-p">
                 Copyright 2023. All Rights Reserved.
               </p>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import imgheader from "../assets/image/bg-img.png"
+import imgheader from "../assets/image/pc-pirman-nih-bos.png"
 
 function Header() {
   return (

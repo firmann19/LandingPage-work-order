@@ -8,7 +8,7 @@ function Header() {
         <h1 className="fw-bold text-4xl text-text-hero">
           Work Order
           <br />
-          The Best Service There is!
+          <p>The Best Service <span className="span-2 text-red-500">There is!</span></p>
         </h1>
         <p className="text-lg text-justify my-8">
           Offers technological device repair services. Makes you feel most

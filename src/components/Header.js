@@ -3,8 +3,8 @@ import imgheader from "../assets/image/pc-pirman-nih-bos.png"
 
 function Header() {
   return (
-    <div className="w-full flex gap-10 px-7 items-center bg-image bg-white p-10">
-      <div className="w-1/2">
+    <div className="w-full flex gap-20 px-7 items-center bg-image bg-white p-10">
+      <div className="mr-24">
         <h1 className="fw-bold text-4xl text-text-hero">
           Work Order
           <br />
@@ -19,7 +19,7 @@ function Header() {
           Get Started
         </button>
       </div>
-      <div>
+      <div className="img-header">
         <img src={imgheader} alt="hero" />
       </div>
     </div>

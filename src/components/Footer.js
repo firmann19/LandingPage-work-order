@@ -27,10 +27,10 @@ const Footer = () => {
               </div>
               <div className="footer col-lg-4 col-md-1 mb-4">
                 <h6>Layanan</h6>
-                <p className='f-p mb-2'>- Troubleshoot PC</p>
-                <p className='f-p mb-2'>- Troubleshoot Network</p>
-                <p className='f-p mb-2'>- DataBase & Server</p>
-                <p className='f-p mb-2'>- Other</p>
+                <p className='f-p mb-2'>Troubleshoot PC</p>
+                <p className='f-p mb-2'>Troubleshoot Network</p>
+                <p className='f-p mb-2'>DataBase & Server</p>
+                <p className='f-p mb-2'>Other</p>
               </div>
               <hr />
               <p className="footer-p">

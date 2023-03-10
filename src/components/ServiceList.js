@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceItem from "./ServiceItem";
 // import ImgHardware from '../assets/image/hardware.png'
-import ImgSoftware from '../assets/image/hardware.png'
+import ImgSoftware from '../assets/image/service-1.png'
 
 function ServiceList(props) {
   return (

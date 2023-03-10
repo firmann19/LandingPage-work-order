@@ -5,9 +5,10 @@
 @tailwind utilities;
 
 @import './componentstyle/Footer.style.css';
+@import './componentstyle/header.css';
 
 .bg-image {
-     background-image: url(../assets/image/bg-header.png);
+    background-image: url(../assets/image/bg-user.png);
     background-size: cover;
 }
 

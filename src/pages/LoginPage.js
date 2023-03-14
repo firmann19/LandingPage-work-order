@@ -15,7 +15,7 @@ function LoginPage() {
           <p className='text-center font-Quicksand mt-4 md:text-lg lg:text-base'>
             Don&apos;t have an account?
             {' '}
-            <Link className='underline text-link hover:text-linkHover' to="/register">Register</Link>
+            <Link className='underline text-link hover:text-linkHover' to="/register-page">Register</Link>
           </p>
         </div>
         <div className="w-full bg-slate-50 flex items-center md:h-2/5 lg:w-3/5 lg:h-full">

@@ -10,7 +10,7 @@ function Navigation() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
   <Link to="/" className="navbar-logo">
-         <img src={NavbarLogo} alt="logo-hta" height="100" width="80" />
+         <img className="me-3" src={NavbarLogo} alt="logo-hta" height="100" width="80" />
          </Link>
         <Navbar.Brand>
           <strong>HTA INDONESIA GROUP</strong>

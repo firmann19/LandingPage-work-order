@@ -57,11 +57,9 @@ function ContactUs() {
                   ></textarea>
                 </div>
               </div>
-              <div className="p-2 w-full">
-                <button className="flex mx-auto text-white bg-primary-color border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                  Button
-                </button>
-              </div>
+              <button className="btn-contact-us">
+                Submit
+              </button>
             </div>
           </div>
         </div>

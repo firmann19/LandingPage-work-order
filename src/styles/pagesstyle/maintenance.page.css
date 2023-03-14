@@ -1,0 +1,15 @@
+.container-maintenance {
+    border: 1px solid;
+    width: 100%;
+    background: url("/src/assets/image/foto\ firman\ di\ pik.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-maintenance h1 {
+    font-weight: bold;
+    margin-top: 200px;
+    margin-bottom: 420px;
+    margin-right: 200px;
+    font-size: 80px
+}

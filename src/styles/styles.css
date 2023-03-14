@@ -7,6 +7,34 @@
 @import './componentstyle/Footer.style.css';
 @import './componentstyle/header.css';
 
+@import './pagesstyle/maintenance.page.css';
+@import './pagesstyle/checkout.page.css';
+
+.btn-contact-us {
+    background-color: rgb(255, 0, 0);
+    margin-left: 200px;
+    margin-top: 20px;
+    border-radius: 60px;
+    border: none;
+    color:rgb(255, 255, 255);
+    min-width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-checkout-input {
+    background-color: rgb(255, 0, 0);
+    margin-left: 250px;
+    border-radius: 60px;
+    border: none;
+    color:rgb(255, 255, 255);
+    min-width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .bg-image {
     background-image: url(../assets/image/bg-user.png);
     background-size: cover;
@@ -106,3 +134,4 @@
 /* .img-header {
     margin-left: 225px;
 } */
+

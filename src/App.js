@@ -7,6 +7,8 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import HistoryOrder from "./pages/HistoryOrder";
 import HistoryOrderDetail from "./pages/HistoryOrderDetail";
+import ServiceList from "./pages/ServiceListPage";
+import Maintenance from "./pages/MaintenancePage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/checkout-page" element={<CheckOutPage />} />
         <Route path="/history-order-page" element={<HistoryOrder />} />
         <Route path="/history-order-detail-page" element={<HistoryOrderDetail />} />
+        <Route path="/service" element={<ServiceList />} />
+        <Route path="/maintenance.." element={<Maintenance />} />
       </Routes>
     </>
   );

@@ -1,10 +1,19 @@
 import React from "react";
 import ImgProfile from '../assets/image/foto firman di pik.jpg'
+import { Link } from "react-router-dom";
+import iconkembali from "../assets/image/reply.png";
 
 function Sidebar() {
   return (
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">
+
+      <div className="btn-kembali">
+      <Link to="/" className="">
+         <img src={iconkembali}alt="logo-hta" height="50" width="50" /> 
+         </Link> 
+      </div>
+
         <div className="user text-center pb-50 pe-30">
           <img
             src={ImgProfile}

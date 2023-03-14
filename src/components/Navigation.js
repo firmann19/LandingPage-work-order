@@ -13,24 +13,23 @@ function Navigation() {
          <img src={NavbarLogo} alt="logo-hta" height="100" width="80" />
          </Link>
         <Navbar.Brand>
-          <strong>HTA INDONESIA INDONESIA</strong>
+          <strong>HTA INDONESIA GROUP</strong>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" className='me-2 text-white'>Home</Nav.Link>
             <Nav.Link as={Link} to="/" className='me-2 text-white'>Services</Nav.Link>
-            <Nav.Link as={Link} to="/" className='me-2 text-white'>Contact Us</Nav.Link>
             <Link to="/login-page">
               <button className="w-28 h-9 rounded-full text-l font-medium bg-danger text-white">
                 Login
               </button>
             </Link>
-            <Link to="/register-page">
+            {/* <Link to="/register-page">
               <button className="ms-3 w-28 h-9 rounded-full text-l font-medium bg-white text-black ">
                 Register
               </button>
-            </Link>
+            </Link> */}
           </Nav>
         </Navbar.Collapse>
         </Container>

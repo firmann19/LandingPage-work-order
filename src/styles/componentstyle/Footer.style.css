@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     padding-top: 50px;
 }
 
@@ -64,4 +64,13 @@
 
 .footer-layanan {
     padding-bottom: -10px;
+} */
+.container-footer {
+    text-align: center;
+    background-color: #212529;
+}
+
+.container-footer p {
+    font-weight: bold;
+    color: aliceblue;
 }

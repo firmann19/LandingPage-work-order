@@ -9,9 +9,9 @@ function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-  <Link to="/" className="navbar-logo">
-         <img className="me-3" src={NavbarLogo} alt="logo-hta" height="100" width="80" />
-         </Link>
+          <Link to="/" className="navbar-logo">
+            <img className="me-3" src={NavbarLogo} alt="logo-hta" height="100" width="80" />
+          </Link>
         <Navbar.Brand>
           <strong>HTA INDONESIA GROUP</strong>
         </Navbar.Brand>

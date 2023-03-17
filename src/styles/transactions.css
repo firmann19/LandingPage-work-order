@@ -1,6 +1,6 @@
 
 .transactions {
-    background-color: #FBFCFD;
+    background-color: #e4e7ea;
 }
 
 .transactions main.main-wrapper{
@@ -32,7 +32,7 @@
 }
 
 .transactions .latest-transaction .main-content-table{
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 1.25rem 1.875rem;
     border-radius: 1rem;
     max-width: 1047px;

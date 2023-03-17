@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Notif from "../components/Notif";
 
 function HistoryOrderDetail() {
   return (
     <section className="transactions-detail overflow-auto">
       <Sidebar />
+      <Notif />
       <main className="main-wrapper">
         <div className="ps-lg-0">
           <h2 className="text-4xl fw-bold color-palette-1 mb-30">

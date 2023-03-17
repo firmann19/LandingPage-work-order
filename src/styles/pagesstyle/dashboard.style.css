@@ -1,0 +1,24 @@
+.kotak-order {
+    display: flex;
+}
+.kotak-order a {
+    text-decoration: none;
+}
+.btn-create-order {
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    background-color: #0C145A;
+}
+.kotak-order img {
+    margin: 20px;
+}
+.btn-create-order p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 45px;
+    text-decoration: none;
+    margin-right: 20px;
+    color: rgb(255, 255, 255);
+}
+

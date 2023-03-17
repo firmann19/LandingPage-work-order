@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
-import Sidebar from '../components/Sidebar'
-import TableHistoryOrder from '../components/TableHistoryOrder'
-
-
+import React from 'react';
+import Sidebar from '../components/Sidebar';
+import TableHistoryOrder from '../components/TableHistoryOrder';
+import Notif from "../components/Notif";
 
 function HistoryOrder() {
   return (
     <div className="transactions overflow-auto h-screen">
         <Sidebar />
+        <Notif />
         <main className="main-wrapper">
             <div className="ps-lg-0">
                 <div className="row mt-30 mb-20">

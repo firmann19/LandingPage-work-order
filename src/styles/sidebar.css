@@ -1,6 +1,6 @@
 
 .sidebar .content {
-    background: #FFFFFF;
+    background: #ffffff;
     width: 290px;
     position: relative;
     height: 100vh;
@@ -49,6 +49,7 @@
 .sidebar .menus .item a{
     color: #7E8CAC;
     transition: all 0.2s linear;
+    text-decoration: none;
 }
 
 .sidebar-footer .footer-card{

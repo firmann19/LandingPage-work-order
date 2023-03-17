@@ -1,19 +1,11 @@
 import React from "react";
 import ImgProfile from '../assets/image/foto firman di pik.jpg'
 import { Link } from "react-router-dom";
-import iconkembali from "../assets/image/reply.png";
 
 function Sidebar() {
   return (
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">
-
-      <div className="btn-kembali">
-      <Link to="/" className="">
-         <img src={iconkembali}alt="logo-hta" height="50" width="50" /> 
-         </Link> 
-      </div>
-
         <div className="user text-center pb-50 pe-30">
           <img
             src={ImgProfile}
@@ -64,13 +56,13 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-              <a
-                href="../member/overview.html"
-                className="text-lg text-decoration-none"
-              >
-                Overview
+              <Link to="/">
+              <a className="text-lg text-decoration-none">
+                Dashboard
               </a>
+              </Link>
             </p>
+            
           </div>
           <div className="item active mb-30">
             <svg
@@ -104,9 +96,11 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-              <a href="" className="text-lg text-decoration-none">
-                Transactions
+            <Link to="/history-order-page">
+              <a className="text-lg text-decoration-none">
+                History Order
               </a>
+              </Link>
             </p>
           </div>
 

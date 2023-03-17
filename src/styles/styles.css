@@ -4,24 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './componentstyle/Footer.style.css';
-@import './componentstyle/header.css';
+@import './componentstyle/notif.css';
 
 @import './pagesstyle/maintenance.page.css';
 @import './pagesstyle/checkout.page.css';
-
-.btn-contact-us {
-    background-color: rgb(255, 0, 0);
-    margin-left: 200px;
-    margin-top: 20px;
-    border-radius: 60px;
-    border: none;
-    color:rgb(255, 255, 255);
-    min-width: 200px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: bold;
-}
+@import './pagesstyle/dashboard.style.css';
 
 .btn-checkout-input {
     background-color: rgb(255, 0, 0);
@@ -35,103 +22,16 @@
     font-weight: bold;
 }
 
-.bg-image {
-    background-image: url(../assets/image/bg-user.png);
-    background-size: cover;
-}
-
-.navigation {
-    justify-content: space-between;
-}
-
-#footer {
-    background-color: #FFB8B8;
-    padding-top: 50px;
-}
-
-.row {
-    grid-template-columns: 1fr 1fr 1fr;
-}
-#footer h6 {
-    margin-bottom: 23.3px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #0C145A;
-}
-
-#footer p {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #0C145A;
-    margin-top: -10px;
-}
-
-#footer hr {
-    color: #FF0030;
-    height: 1.5px;
-}
-
-#footer .footer-social {
-    float: left;
-    margin-right: 20px;
-    width: 30px;
-    height: 30px;
-}
-#footer .footer-social a{
-    color: black;
-}
-
-.footer {
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-#footer .footer-copy {
-    text-align: center;
-    margin-top: 4px;
-    margin-bottom: 0;
-    color: black;
-
-}
-
-#footer .footer-copy img {
-    margin-right: 0;
-}
-
-#footer .footer-logo {
-    margin-bottom: 13px;
-    height: 50px;
-}
-
-.icon-footer {
-    width: 100%;
-    height: 30px;
-}
 
 @media (max-width: 450px) {
-    .img-header {
-        display: none;
-    }
+
 }
 @media (max-width: 550px) {
-    .img-header {
-        display: none;
-    }
+
 }
 @media (max-width: 800px) {
-    .img-header {
-        display: none;
-    }
+
 }
 
-/* .img-header {
-    margin-left: 225px;
-} */
+
 

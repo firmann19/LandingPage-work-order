@@ -2,7 +2,6 @@ import React from 'react';
 import ImgCheckout from '../assets/image/img-checkout.png';
 import CheckOutInput from '../components/CheckOutInput';
 import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
 
 function CheckOutPage() {
   return (
@@ -24,7 +23,6 @@ function CheckOutPage() {
       </div>
     </div>
     </div>
-    <Footer />
     </>
   )
 }

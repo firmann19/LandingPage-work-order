@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 
-function CheckOutInput() {
+function CreateWoInput() {
   return (
-    <form>
+    <form className="mx-auto w-50">
       <div className="text-gray-700 body-font relative">
           <div className="mx-auto">
             <div className="flex flex-wrap">
               <div className="p-4 w-1/2">
                 <div className="relative">
-                  <label for="name" className="leading-7 text-sm text-gray-600">
-                    Name Customer :
+                  <label for="name" className="leading-7 text-sm text-gray-600 fw-bold">
+                    User
                   </label>
                   <input
                     type="text"
@@ -24,9 +26,9 @@ function CheckOutInput() {
                 <div className="relative">
                   <label
                     for="email"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-gray-600 fw-bold"
                   >
-                    Departemen :
+                    Nama Peralatan
                   </label>
                   <input
                     type="email"
@@ -41,8 +43,8 @@ function CheckOutInput() {
             <div className="flex flex-wrap">
               <div className="p-4 w-1/2">
                 <div className="relative">
-                  <label for="name" className="leading-7 text-sm text-gray-600">
-                    Name Peralatan :
+                  <label for="name" className="leading-7 text-sm text-gray-600 fw-bold">
+                    Departement
                   </label>
                   <input
                     type="text"
@@ -56,9 +58,9 @@ function CheckOutInput() {
                 <div className="relative">
                   <label
                     for="email"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-gray-600 fw-bold"
                   >
-                    Nomer Peralatan :
+                    Kode Peralatan
                   </label>
                   <input
                     type="email"
@@ -74,7 +76,7 @@ function CheckOutInput() {
                 <div className="relative">
                   <label
                     for="message"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-gray-600 fw-bold"
                   >
                     Permasalahan
                   </label>
@@ -87,13 +89,24 @@ function CheckOutInput() {
               </div>
           </div>
         </div>
+        <Dropdown className="ms-4">
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Disetujui
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <div className="mx-auto w-25 mt-5">
           <Link to="/complete-order">
-              <button className="btn-checkout-input">
-                Submit
-              </button>
-              </Link>
+            <Button className="w-100" variant="danger">Submit</Button>
+          </Link>
+          </div>
     </form>
   );
 }
 
-export default CheckOutInput;
+export default CreateWoInput;

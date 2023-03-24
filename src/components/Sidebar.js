@@ -64,7 +64,7 @@ function Sidebar() {
             </p>
             
           </div>
-          <div className="item active mb-30">
+          <div className="item mb-30">
             <svg
               className="icon me-3"
               width="25"
@@ -141,12 +141,11 @@ function Sidebar() {
               </defs>
             </svg>
             <p className="item-title m-0">
-              <a
-                href="../member/edit-profile.html"
-                className="text-lg text-decoration-none"
-              >
+            <Link to="/settings">
+              <a className="text-lg text-decoration-none">
                 Settings
               </a>
+              </Link>
             </p>
           </div>
           <div className="item mb-30">

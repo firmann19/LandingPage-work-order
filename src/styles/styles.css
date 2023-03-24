@@ -9,6 +9,8 @@
 @import './pagesstyle/maintenance.page.css';
 @import './pagesstyle/checkout.page.css';
 @import './pagesstyle/dashboard.style.css';
+@import './pagesstyle/settings.css';
+
 
 .btn-checkout-input {
     background-color: rgb(255, 0, 0);

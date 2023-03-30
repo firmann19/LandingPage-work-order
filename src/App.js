@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import CreateOrderPage from "./pages/CreateOrderPage";
 import CompleteOrder from "./pages/CompleteOrder";
@@ -7,10 +7,15 @@ import HistoryOrder from "./pages/HistoryOrder";
 import HistoryOrderDetail from "./pages/HistoryOrderDetail";
 import DashboardPage from "./pages/DashboardPage";
 import SettingsPage from "./pages/SettingsPage";
+import { listen } from "./redux/listener";
 
 
 
 function App() {
+  useEffect(() => {
+    listen();
+  }, [])
+
   return (
     <>
       <Routes>

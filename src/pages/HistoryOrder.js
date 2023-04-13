@@ -8,7 +8,6 @@ function HistoryOrder() {
   return (
     <div className="transactions overflow-auto h-screen">
         <Sidebar />
-        <Navbar />
         <main className="main-wrapper">
             <div className="ps-lg-0">
                 <div className="row mt-30 mb-20">

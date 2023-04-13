@@ -1,52 +1,21 @@
-import {
-  LOGIN_FAIL,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGOUT_FAIL,
-  LOGOUT_SUCCESS,
-  REGISTER_USER_FAIL,
-  REGISTER_USER_REQUEST,
-  REGISTER_USER_SUCCESS,
-} from "./constants";
+import { USER_LOGIN, USER_LOGOUT } from "./constants";
 
-export const userReducer = (state = { user: {} }, action) => {
+let initialState = localStorage.getItem("auth")
+  ? JSON.parse(localStorage.getItem("auth"))
+  : { token: null };
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_REQUEST:
-    case REGISTER_USER_REQUEST:
+    case USER_LOGIN:
       return {
-        isAuthenticated: false,
+        token: action.token,
       };
 
-    case LOGIN_SUCCESS:
-    case REGISTER_USER_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: true,
-        user: action.payload,
-      };
-
-    case LOGOUT_SUCCESS:
-      return {
-        user: null,
-        isAuthenticated: false,
-      };
-
-    case LOGIN_FAIL:
-    case REGISTER_USER_FAIL:
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-        error: action.payload,
-      };
-    case LOGOUT_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
+    case USER_LOGOUT:
+      return { token: null };
 
     default:
       return state;
   }
-};
+}
+

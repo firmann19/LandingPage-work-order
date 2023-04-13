@@ -1,18 +1,28 @@
-import React from "react";
-import ImgProfile from '../assets/image/foto firman di pik.jpg'
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
+  const [role, setRole] = useState(null)
+
+  useEffect(() => {
+    const fetchData = () => {
+      let {role} = localStorage.getItem("auth") ? JSON.parse(localStorage.getItem("auth")) : {}
+      
+      setRole(role)
+    };
+    fetchData()
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login-page"
+  }
+
   return (
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">
         <div className="user text-center pb-50 pe-30">
-          <img
-            src={ImgProfile}
-            width="90"
-            height="90"
-            className="rounded-full img-fluid mb-20 mx-auto"
-          />
           <h2 className="fw-bold text-xl color-palette-1 m-0">Shayna Anne</h2>
           <p className="color-palette-2 m-0">shayna@anne.com</p>
         </div>
@@ -56,10 +66,8 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-              <Link to="/">
-              <a className="text-lg text-decoration-none">
+              <Link role={role} action={() => navigate("/dashboard")} to="/dashboard" className="text-lg text-decoration-none">
                 Dashboard
-              </a>
               </Link>
             </p>
             
@@ -96,10 +104,8 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-            <Link to="/history-order-page">
-              <a className="text-lg text-decoration-none">
+            <Link role={role} action={() => navigate('/history-order-page')} to="/history-order-page" className="text-lg text-decoration-none">
                 History Order
-              </a>
               </Link>
             </p>
           </div>
@@ -141,10 +147,8 @@ function Sidebar() {
               </defs>
             </svg>
             <p className="item-title m-0">
-            <Link to="/settings">
-              <a className="text-lg text-decoration-none">
+            <Link role={role} action={() => navigate("/settings")} to="/settings" className="text-lg text-decoration-none">
                 Settings
-              </a>
               </Link>
             </p>
           </div>
@@ -173,9 +177,9 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-              <a href="" className="text-lg text-decoration-none">
+              <Link onClick={() => handleLogout()} className="text-lg text-decoration-none">
                 Log Out
-              </a>
+              </Link>
             </p>
           </div>
         </div>

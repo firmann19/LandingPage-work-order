@@ -1,19 +1,63 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LoginImg from "../assets/image/login-page.png";
 import LoginInput from "../components/LoginInput";
-import { LOGIN_SUCCESS } from "../redux/auth/constants";
+import SAlert from "../components/partikel/Alert";
+import { userLogin } from "../redux/auth/actions";
 import { postData } from "../utils/fetch";
 
 function LoginPage() {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [alert, setAlert] = useState({
+    status: false,
+    message: "",
+    type: "danger",
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true)
+    try {
+      const res = await postData("/auth/signin", form);
+      
+      dispatch(userLogin(res.data.data.token))
+
+      setIsLoading(false)
+      navigate('/dashboard')
+    } catch (err) {
+      setIsLoading(false)
+      setAlert({
+        status: true,
+        message: err?.response?.data?.msg ?? "Internal Server Error",
+        type: "danger",
+      });
+    }
+  };
 
   return (
     <section id="loginPage" className="h-screen">
       <div className="flex flex-col items-center lg:flex-row lg:h-full">
         <div className="w-full self-center p-8 md:h-3/5 lg:w-2/5">
+          <div className="m-auto text-center" style={{ width: "100%" }}>
+            {alert.status && (
+              <SAlert type={alert.type} message={alert.message} />
+            )}
+          </div>
           <h1 className="font-Philosopher font-bold text-4xl text-danger md:text-6xl lg:text-4xl text-center mb-3">
             Login
           </h1>
@@ -21,6 +65,10 @@ function LoginPage() {
             Please Login to continue into the application.
           </p>
           <LoginInput
+            form={form}
+            isLoading={isLoading}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
           />
           <p className="text-center font-Quicksand mt-4 md:text-lg lg:text-base">
             Don&apos;t have an account?{" "}

@@ -2,13 +2,13 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import TableHistoryOrder from '../components/TableHistoryOrder';
-import Notif from "../components/Notif";
+import Navbar from '../components/Navbar';
 
 function HistoryOrder() {
   return (
     <div className="transactions overflow-auto h-screen">
         <Sidebar />
-        <Notif />
+        <Navbar />
         <main className="main-wrapper">
             <div className="ps-lg-0">
                 <div className="row mt-30 mb-20">

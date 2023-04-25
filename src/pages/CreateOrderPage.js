@@ -6,10 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchListsUser } from "../redux/lists/actions";
 import { postData } from "../utils/fetch";
 import { setNotif } from "../redux/notif/actions";
+import Navbar from "../components/Navbar";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
+  const [departement, setDepartement] = useState(null);
   const lists = useSelector((state) => state.lists);
   const [form, setForm] = useState({
     user: "",
@@ -29,16 +32,37 @@ function CreateOrderPage() {
 
   useEffect(() => {
     dispatch(fetchListsUser());
+    const fetchData = () => {
+      let { user, departement } = localStorage.getItem("auth")
+        ? JSON.parse(localStorage.getItem("auth"))
+        : {};
+
+      setUser(user);
+      setDepartement(departement)
+    };
+    fetchData();
   }, [dispatch]);
 
   const handleChange = async (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    if (e.target.name === "user") {
+      console.log("e.target.name");
+      console.log(e.target.name);
+      setForm({ ...form, [e.target.name]: e });
+    } else {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async () => {
     setIsLoading(true);
 
-    const payload = {};
+    const payload = {
+      user: form.user,
+      departement: form.departement,
+      kodePeralatan: form.kodePeralatan,
+      permasalahan: form.permasalahan,
+      disetujui: form.disetujui.valueOf,
+    };
 
     const res = await postData("/checkout", payload);
 
@@ -72,14 +96,17 @@ function CreateOrderPage() {
   };
 
   return (
-    <>
+    <div className="transactions overflow-auto h-screen">
       <Sidebar />
-      <div className="responsive-form-checkout mx-auto">
-        <div id="create-wo" className="h-screen mx-auto">
-          <h2 className="font-Philosopher font-bold text-6xl md:text-6xl lg:text-6xl text-center ">
+      <Navbar />
+      <div className="responsive-form-checkout transactions mx-auto">
+        <div id="create-wo">
+          <h2 className="font-Philosopher font-bold text-6xl md:text-6xl lg:text-6xl text-center mt-3">
             Work Order
           </h2>
           <CreateWoInput
+            user={user}
+            departement={departement}
             form={form}
             isLoading={isLoading}
             lists={lists}
@@ -89,7 +116,7 @@ function CreateOrderPage() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

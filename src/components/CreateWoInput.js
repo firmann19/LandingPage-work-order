@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SButton from "./partikel/Button";
 import SelectBox from "./partikel/SelectBox";
 
-function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
+function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading, user, departement }) {
   return (
     <form className="mx-auto w-50">
       <div className="text-gray-700 body-font relative">
@@ -19,10 +19,10 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                 </label>
                 <input
                   type="text"
-                  value={form?.name}
+                  value={user}
                   onChange={handleChange}
                   name="user"
-                  className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -39,7 +39,7 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                   value={form?.namaPeralatan}
                   onChange={handleChange}
                   name="namaPeralatan"
-                  className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -58,9 +58,9 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                   type="text"
                   id="departement"
                   name="departement"
-                  value={form?.departement}
+                  value={departement}
                   onChange={handleChange}
-                  className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -78,7 +78,7 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                   name="kodePeralatan"
                   value={form?.kodePeralatan}
                   onChange={handleChange}
-                  className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -97,7 +97,7 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                 name="permasalahan"
                 value={form?.permasalahan}
                 onChange={handleChange}
-                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
           </div>
@@ -109,8 +109,8 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading }) {
                   placeholder={"Pilih nama atasan"}
                   name="Disetujui"
                   isClearable={true}
-                
-                  
+                  value={form.user}
+                  options={lists.users}
                   handleChange={(e) => handleChange(e)}
                 />
               </div>

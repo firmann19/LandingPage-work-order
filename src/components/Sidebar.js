@@ -3,28 +3,31 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
-  const [role, setRole] = useState(null)
+  const [user, setUser] = useState(null)
+  const [email, setEmail] = useState(null)
 
   useEffect(() => {
     const fetchData = () => {
-      let {role} = localStorage.getItem("auth") ? JSON.parse(localStorage.getItem("auth")) : {}
+      let {user, email} = localStorage.getItem("auth") ? JSON.parse(localStorage.getItem("auth")) : {}
       
-      setRole(role)
+      setUser(user)
+      setEmail(email)
     };
     fetchData()
   }, [])
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/login-page"
+    window.location.href = "/"
   }
 
   return (
+
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">
         <div className="user text-center pb-50 pe-30">
-          <h2 className="fw-bold text-xl color-palette-1 m-0">Shayna Anne</h2>
-          <p className="color-palette-2 m-0">shayna@anne.com</p>
+          <h2 className="fw-bold text-xl color-palette-1 m-0">{user}</h2>
+          <p className="color-palette-2 m-0">{email}</p>
         </div>
         <div className="menus">
           <div className="item mb-30">
@@ -66,7 +69,7 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-              <Link role={role} action={() => navigate("/dashboard")} to="/dashboard" className="text-lg text-decoration-none">
+              <Link user={user} action={() => navigate("/dashboard")} to="/dashboard" className="text-lg text-decoration-none">
                 Dashboard
               </Link>
             </p>
@@ -104,7 +107,7 @@ function Sidebar() {
               />
             </svg>
             <p className="item-title m-0">
-            <Link role={role} action={() => navigate('/history-order-page')} to="/history-order-page" className="text-lg text-decoration-none">
+            <Link user={user} action={() => navigate('/history-order-page')} to="/history-order-page" className="text-lg text-decoration-none">
                 History Order
               </Link>
             </p>
@@ -147,7 +150,7 @@ function Sidebar() {
               </defs>
             </svg>
             <p className="item-title m-0">
-            <Link role={role} action={() => navigate("/settings")} to="/settings" className="text-lg text-decoration-none">
+            <Link user={user} action={() => navigate("/settings")} to="/settings" className="text-lg text-decoration-none">
                 Settings
               </Link>
             </p>

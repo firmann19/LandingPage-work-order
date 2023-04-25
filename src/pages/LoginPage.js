@@ -31,16 +31,16 @@ function LoginPage() {
   };
 
   const handleSubmit = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const res = await postData("/auth/signin", form);
-      
-      dispatch(userLogin(res.data.data.token))
 
-      setIsLoading(false)
-      navigate('/dashboard')
+      dispatch(userLogin(res.data.data.token, res.data.data.user, res.data.data.email, res.data.data.departement));
+
+      setIsLoading(false);
+      navigate("/dashboard");
     } catch (err) {
-      setIsLoading(false)
+      setIsLoading(false);
       setAlert({
         status: true,
         message: err?.response?.data?.msg ?? "Internal Server Error",

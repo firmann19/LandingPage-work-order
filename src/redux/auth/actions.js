@@ -1,9 +1,15 @@
-import { USER_LOGIN, USER_LOGOUT } from "./constants";
+import {
+  USER_LOGIN,
+  USER_LOGOUT,
+} from "./constants";
 
-export function userLogin(token) {
+export function userLogin(token, user, email, departement) {
   return {
     type: USER_LOGIN,
     token,
+    user,
+    email,
+    departement
   };
 }
 
@@ -13,3 +19,4 @@ export function userLogout() {
     type: USER_LOGOUT,
   };
 }
+

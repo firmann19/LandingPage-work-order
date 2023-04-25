@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import debounce from "debounce-promise";
 import { getData } from "../../utils/fetch";
 import {
@@ -46,7 +47,7 @@ export const fetchListsDepartement = () => {
 
       let _temp = [];
 
-      res.data.data.forEach((res) => {
+      res.data.data.getAll_users.forEach((res) => {
         _temp.push({
           value: res.id,
           label: res.nama,
@@ -140,11 +141,11 @@ export const fetchListsUser = () => {
 
       let _temp = [];
 
-      res.data.data.forEach((res) => {
+      res.data.data.getAll_users.forEach((res) => {
         _temp.push({
           value: res.id,
           label: res.name,
-          target: { value: res.id, name: "user" },
+          target: {value: res.id, name: "user"}
         });
       });
 

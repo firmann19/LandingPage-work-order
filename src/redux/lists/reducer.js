@@ -66,7 +66,7 @@ export default function reducer(state = initialState, action) {
     case SUCCESS_FETCHING_LISTS_USER:
       return {
         ...state,
-        statusGroups: statuslist.success,
+        statusUsers: statuslist.success,
         users: action.users,
       };
 

@@ -2,44 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SButton from "./partikel/Button";
 import SelectBox from "./partikel/SelectBox";
+import { Col, Form, Row } from "react-bootstrap";
+import TextInputWithLabel from "../components/partikel/TextInputWithLabel";
 
-function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading, user, departement }) {
+function CreateWoInput({
+  form,
+  lists,
+  handleChange,
+  handleSubmit,
+  isLoading,
+  user,
+  departement,
+}) {
   return (
-    <form className="mx-auto w-50">
+    <Form method="post" className="mx-auto w-50">
       <div className="text-gray-700 body-font relative">
         <div className="mx-auto">
           <div className="flex flex-wrap">
             <div className="p-4 w-1/2">
               <div className="relative">
-                <label
-                  for="name"
-                  className="leading-7 text-sm text-gray-600 fw-bold"
-                >
-                  User
-                </label>
-                <input
-                  type="text"
+                <Form.Label>User</Form.Label>
+                <Form.Control
+                  name="name"
                   value={user}
+                  type="text"
                   onChange={handleChange}
-                  name="user"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  disabled
+                  readOnly
                 />
               </div>
             </div>
             <div className="p-4 w-1/2">
               <div className="relative">
-                <label
-                  for="email"
-                  className="leading-7 text-sm text-gray-600 fw-bold"
-                >
-                  Nama Peralatan
-                </label>
-                <input
+                <Form.Label>Nama Peralatan</Form.Label>
+                <Form.Control
+                  name="namaBarang"
+                  value={form?.namaBarang}
                   type="text"
-                  value={form?.namaPeralatan}
                   onChange={handleChange}
-                  name="namaPeralatan"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -48,37 +48,25 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading, use
           <div className="flex flex-wrap">
             <div className="p-4 w-1/2">
               <div className="relative">
-                <label
-                  for="name"
-                  className="leading-7 text-sm text-gray-600 fw-bold"
-                >
-                  Departement
-                </label>
-                <input
-                  type="text"
-                  id="departement"
+                <Form.Label>Departement</Form.Label>
+                <Form.Control
                   name="departement"
                   value={departement}
+                  type="text"
                   onChange={handleChange}
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  disabled
+                  readOnly
                 />
               </div>
             </div>
             <div className="p-4 w-1/2">
               <div className="relative">
-                <label
-                  for="email"
-                  className="leading-7 text-sm text-gray-600 fw-bold"
-                >
-                  Kode Peralatan
-                </label>
-                <input
+                <Form.Label>Kode Peralatan</Form.Label>
+                <Form.Control
+                  name="kodeBarang"
+                  value={form?.kodeBarang}
                   type="text"
-                  id="kodePeralatan"
-                  name="kodePeralatan"
-                  value={form?.kodePeralatan}
                   onChange={handleChange}
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -86,35 +74,31 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading, use
 
           <div className="p-4 w-full">
             <div className="relative">
-              <label
-                for="message"
-                className="leading-7 text-sm text-gray-600 fw-bold"
-              >
-                Permasalahan
-              </label>
-              <textarea
+              <Form.Label>Permasalahan</Form.Label>
+              <Form.Control
                 id="permasalahan"
+                as="textarea"
                 name="permasalahan"
+                rows={3}
                 value={form?.permasalahan}
                 onChange={handleChange}
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-              ></textarea>
+              />
             </div>
           </div>
-          
-            <div className="p-4 w-1/3">
-              <div className="relative">
-                <SelectBox
-                  label={"Disetujui"}
-                  placeholder={"Pilih nama atasan"}
-                  name="Disetujui"
-                  isClearable={true}
-                  value={form.user}
-                  options={lists.users}
-                  handleChange={(e) => handleChange(e)}
-                />
-              </div>
+
+          <div className="p-4 w-1/3">
+            <div className="relative">
+              <SelectBox
+                label={"Disetujui"}
+                placeholder={"Pilih nama atasan"}
+                name="Disetujui"
+                isClearable={true}
+                value={form.user}
+                options={lists.users}
+                handleChange={(e) => handleChange(e)}
+              />
             </div>
+          </div>
         </div>
       </div>
 
@@ -131,7 +115,7 @@ function CreateWoInput({ form, lists, handleChange, handleSubmit, isLoading, use
           </SButton>
         </Link>
       </div>
-    </form>
+    </Form>
   );
 }
 

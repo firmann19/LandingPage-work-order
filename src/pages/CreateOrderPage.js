@@ -3,10 +3,10 @@ import CreateWoInput from "../components/CreateWoInput";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListsUser } from "../redux/lists/actions";
 import { postData } from "../utils/fetch";
 import { setNotif } from "../redux/notif/actions";
 import Navbar from "../components/Navbar";
+import { fetchListsUserByDepartement } from "../redux/lists/actions";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function CreateOrderPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchListsUser());
+    dispatch(fetchListsUserByDepartement());
     const fetchData = () => {
       let { user, departement } = localStorage.getItem("auth")
         ? JSON.parse(localStorage.getItem("auth"))

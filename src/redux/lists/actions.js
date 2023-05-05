@@ -132,20 +132,21 @@ export const errorFetchingListsUser = () => {
   };
 };
 
-export const fetchListsUser = () => {
+export const fetchListsUserByDepartement = () => {
   return async (dispatch) => {
     dispatch(startFetchingListsUser());
 
     try {
-      let res = await debouncedFetchListsUser("/user");
+      let res = await debouncedFetchListsUser("/getAllApprove");
+      console.log(res)
 
       let _temp = [];
 
-      res.data.data.getAll_users.forEach((res) => {
+      res.data.data.getAllApprove_users.forEach((res) => {
         _temp.push({
           value: res.id,
           label: res.name,
-          target: {value: res.id, name: "user"}
+          target: { value: res.id, name: "user" },
         });
       });
 

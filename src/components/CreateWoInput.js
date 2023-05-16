@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SButton from "./partikel/Button";
 import SelectBox from "./partikel/SelectBox";
 import { Col, Form, Row } from "react-bootstrap";
-import TextInputWithLabel from "../components/partikel/TextInputWithLabel";
 
 function CreateWoInput({
   form,
@@ -12,6 +11,7 @@ function CreateWoInput({
   handleSubmit,
   isLoading,
   user,
+
   departement,
 }) {
   return (
@@ -91,9 +91,9 @@ function CreateWoInput({
               <SelectBox
                 label={"Disetujui"}
                 placeholder={"Pilih nama atasan"}
-                name="Disetujui"
+                name="UserApproveId"
                 isClearable={true}
-                value={form.user}
+                value={form.UserApproveId}
                 options={lists.users}
                 handleChange={(e) => handleChange(e)}
               />

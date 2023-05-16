@@ -4,9 +4,9 @@ import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postData } from "../utils/fetch";
-import { setNotif } from "../redux/notif/actions";
 import Navbar from "../components/Navbar";
 import { fetchListsUserByDepartement } from "../redux/lists/actions";
+import { toast } from "react-toastify";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
@@ -15,11 +15,10 @@ function CreateOrderPage() {
   const [departement, setDepartement] = useState(null);
   const lists = useSelector((state) => state.lists);
   const [form, setForm] = useState({
-    user: "",
-    departement: "",
-    kodePeralatan: "",
+    namaBarang: "",
+    kodeBarang: "",
     permasalahan: "",
-    disetujui: "",
+    UserApproveId: 0,
   });
 
   const [alert, setAlert] = useState({
@@ -38,13 +37,13 @@ function CreateOrderPage() {
         : {};
 
       setUser(user);
-      setDepartement(departement)
+      setDepartement(departement);
     };
     fetchData();
   }, [dispatch]);
 
   const handleChange = async (e) => {
-    if (e.target.name === "user") {
+    if (e.target.name === "UserApproveId") {
       console.log("e.target.name");
       console.log(e.target.name);
       setForm({ ...form, [e.target.name]: e });
@@ -57,35 +56,33 @@ function CreateOrderPage() {
     setIsLoading(true);
 
     const payload = {
-      user: form.user,
-      departement: form.departement,
-      kodePeralatan: form.kodePeralatan,
+      UserRequestId: user,
+      namaBarang: form.namaBarang,
+      kodeBarang: form.kodeBarang,
       permasalahan: form.permasalahan,
-      disetujui: form.disetujui.valueOf,
+      UserApproveId: form.UserApproveId.value,
     };
 
-    const res = await postData("/checkout", payload);
+    console.log(payload)
+    console.log("payload")
 
-    if (res.data.data) {
-      dispatch(
-        setNotif(
-          true,
-          "success",
-          `Work Order telah dibuat oleh ${res.data.data.name}`
-        )
-      );
+  await postData(`/checkout`, payload)
+  .then((res) => {
+    if (res.data.status === true) {
+      toast.success(res.data.message);
       navigate("/complete-order");
       setIsLoading(false);
     } else {
-      setIsLoading(false);
-      setAlert({
-        ...alert,
-        status: true,
+      setIsLoading(true);
+      alert({
+        status: false,
         type: "danger",
-        message: res.response.data.msg,
+        message: "gagal",
       });
     }
-  };
+  })
+  .catch((err) => console.log("ini errror", err));
+};
 
   const handleChangeKeyPoint = (e, i) => {
     let _temp = [...form.keyPoint];

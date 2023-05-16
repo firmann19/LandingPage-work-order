@@ -146,7 +146,7 @@ export const fetchListsUserByDepartement = () => {
         _temp.push({
           value: res.id,
           label: res.name,
-          target: { value: res.id, name: "user" },
+          target: { value: res.id, name: "UserApproveId" },
         });
       });
 

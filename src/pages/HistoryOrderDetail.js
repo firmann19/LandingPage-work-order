@@ -1,82 +1,108 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import SidebarNew from "../components/SidebarNew";
+import { Card, Form } from "react-bootstrap";
 
 function HistoryOrderDetail() {
   return (
-    <section className="transactions-detail overflow-auto">
-      <Sidebar />
-      <Navbar />
-      <main className="main-wrapper">
-        <div className="ps-lg-0">
-          <h2 className="text-4xl fw-bold color-palette-1 mb-30">
-            Order Details
-          </h2>
-          <div className="details">
-            <div className="main-content main-content-card overflow-auto">
-              <section className="checkout mx-auto">
-                <div className="d-flex flex-row  align-items-center justify-content-between mb-30">
-                  <div>
-                    <p className="fw-medium text-center label pending m-0 rounded-pill">
-                      Pending
-                    </p>
-                  </div>
+    <div
+      className="transactions-detail overflow-auto h-screen"
+      style={{ display: "flex", height: "130vh", overflow: "scroll initial" }}
+    >
+      <SidebarNew />
+      <div className="w-full">
+        <Navbar />
+
+        <div className="p-5">
+          <Card>
+            <h2 className="fw-bold text-xl color-palette-1 mb-20 ps-3 pt-3">
+              Order Details
+            </h2>
+            <div className="flex flex-wrap">
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Nama Peralatan</Form.Label>
+                  <Form.Control name="name" type="text" />
                 </div>
-                <hr />
-                <div className="purchase pt-30">
-                  <h2 className="fw-bold text-xl color-palette-1 mb-20">
-                    Order Details
-                  </h2>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Nama Peralatan{" "}
-                    <span className="purchase-details">Monitor</span>
-                  </p>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Kode Peralatan{" "}
-                    <span className="purchase-details">ASTG123</span>
-                  </p>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Permasalahan{" "}
-                    <span className="purchase-details">
-                      Monitor tidak bisa menyala
-                    </span>
-                  </p>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Saran Teknisi
-                    <span className="purchase-details">
-                      Matikan Komputer dengan benar supaya tidak error
-                    </span>
-                  </p>
+              </div>
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Kode Peralatan</Form.Label>
+                  <Form.Control name="namaBarang" type="text" />
                 </div>
-                <div className="payment pt-10 pb-10">
-                  <h2 className="fw-bold text-xl color-palette-1 mb-20">
-                    User Informations
-                  </h2>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Nama{" "}
-                    <span className="purchase-details">Firman Ramadhan</span>
-                  </p>
-                  <p className="text-lg color-palette-1 mb-20">
-                    Departemen{" "}
-                    <span className="purchase-details">Information Technology</span>
-                  </p>
-                </div>
-                <div className="d-md-block d-flex flex-column w-100">
-                  <Link
-                    className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg"
-                    href="#"
-                    role="button"
-                  >
-                    WhatsApp ke Admin
-                  </Link>
-                </div>
-              </section>
+              </div>
             </div>
-          </div>
+
+            <div className="p-4 w-full">
+              <div className="relative">
+                <Form.Label>Permasalahan</Form.Label>
+                <Form.Control
+                  id="permasalahan"
+                  as="textarea"
+                  name="permasalahan"
+                  rows={3}
+                />
+              </div>
+            </div>
+
+            <div className="p-4 w-full">
+              <div className="relative">
+                <Form.Label>Saran Teknisi</Form.Label>
+                <Form.Control
+                  id="permasalahan"
+                  as="textarea"
+                  name="permasalahan"
+                  rows={3}
+                />
+              </div>
+            </div>
+
+            <h2 className="fw-bold text-xl color-palette-1 mb-20 ps-3 pt-3">
+              Informasi Pengguna
+            </h2>
+            <div className="flex flex-wrap">
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Nama Pengguna</Form.Label>
+                  <Form.Control name="name" type="text" />
+                </div>
+              </div>
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Departemen</Form.Label>
+                  <Form.Control name="namaBarang" type="text" />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap">
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Waktu Order</Form.Label>
+                  <Form.Control name="name" type="text" />
+                </div>
+              </div>
+              <div className="p-4 w-1/2">
+                <div className="relative">
+                  <Form.Label>Waktu Penyelesaian</Form.Label>
+                  <Form.Control name="namaBarang" type="text" />
+                </div>
+              </div>
+            </div>
+            <div className="d-md-block d-flex flex-column w-100">
+              <Link
+                className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg"
+                href="#"
+                role="button"
+              >
+                WhatsApp ke Admin
+              </Link>
+            </div>
+          </Card>
         </div>
-      </main>
-    </section>
+      </div>
+    </div>
   );
 }
 

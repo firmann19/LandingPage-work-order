@@ -8,8 +8,17 @@
     display: flex;
     flex-direction: row;
     border-radius: 30px;
-    background-color: #0C145A;
+    background-color: #c9174c;    
 }
+
+.btn-create-order:hover {
+    background-color: #0e29d5;
+}
+
+.sidebar:hover {
+    background-color: #c9174c;
+}
+
 .kotak-order img {
     margin: 20px;
 }
@@ -20,5 +29,10 @@
     text-decoration: none;
     margin-right: 20px;
     color: rgb(255, 255, 255);
+}
+
+.icon-1, .icon-2{
+    height: 24px;
+    width: 24px;
 }
 

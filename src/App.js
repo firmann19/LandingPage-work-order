@@ -10,6 +10,7 @@ import { listen } from "./redux/listener";
 import ProfilePage from "./pages/ProfilePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SidebarNew from "./components/SidebarNew";
 
 function App() {
   useEffect(() => {

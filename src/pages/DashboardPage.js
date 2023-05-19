@@ -1,36 +1,40 @@
-import React from 'react';
-import Sidebar from '../components/Sidebar';
-import TableDashboard from '../components/TableDashboard';
+import React from "react";
+import TableDashboard from "../components/TableDashboard";
 import { Link } from "react-router-dom";
 import serviceicon from "../assets/image/service.png";
-import Navbar from '../components/Navbar';
-
+import Navbar from "../components/Navbar";
+import SidebarNew from "../components/SidebarNew";
 
 const DashboardPage = () => {
   return (
-    <div className="transactions overflow-auto h-screen">
-    <Sidebar />
-    <Navbar />
-    <main className="main-wrapper">
-        <div className="ps-lg-0">
-            <div className="row mt-30 mb-20">
-                <div className="col-lg-12 col-12 main-content">
-                    <h3 className='fw-bold mb-3'>Dashboard</h3>
-                    <div className="kotak-order">
-                        <Link to="/create-order">
-                            <button className="btn-create-order">
-                                <img src={serviceicon}alt="logo-hta" height="10" width="80" /> 
-                                <p>Create Order</p>
-                            </button>
-                        </Link>
-                    </div>
-                </div>
+      <div
+        className="transactions overflow-auto h-screen"
+        style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+      >
+        <SidebarNew />
+        <div className="w-full">
+          <Navbar />
+          <div className="p-5">
+            <h3 className="fw-bold pb-4">Dashboard</h3>
+            <div className="kotak-order pb-5">
+              <Link to="/create-order">
+                <button className="btn-create-order zoom-effect">
+                  <img
+                    src={serviceicon}
+                    className=""
+                    alt="logo-hta"
+                    height="10"
+                    width="80"
+                  />
+                  <p>Create Order</p>
+                </button>
+              </Link>
             </div>
-           <TableDashboard />
+            <TableDashboard />
+          </div>
         </div>
-    </main>
-</div>
-  )
-}
+      </div>
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;

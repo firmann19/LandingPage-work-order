@@ -6,15 +6,16 @@ import { postData, putData } from "../utils/fetch";
 import { setNotif } from "../redux/notif/actions";
 import ProfileInput from "../components/ProfileInput";
 import Navbar from "../components/Navbar";
+import SidebarNew from "../components/SidebarNew";
 
 const ProfilePage = () => {
-  const {userId} = useParams();
+  const { userId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
-    avatar: ""
+    avatar: "",
   });
 
   const [alert, setAlert] = useState({
@@ -24,14 +25,13 @@ const ProfilePage = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  
 
   const handleSubmit = async () => {
     setIsLoading(true);
 
     const payload = {
       image: form.file,
-      role: form.name
+      role: form.name,
     };
 
     const res = await putData(`/profile/${userId}`, payload);
@@ -50,17 +50,22 @@ const ProfilePage = () => {
         message: res.response.data.msg,
       });
     }
-  }
+  };
 
   return (
-    <>
-      <Sidebar />
-      <Navbar />
-      <div className="judul-settings">
-        <h1>Settings</h1>
+    <div
+      className="overflow-auto h-screen"
+      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+    >
+      <SidebarNew />
+      <div className="w-full">
+        <Navbar />
+        <div>
+          <h2 className="text-center p-5">Profile Setting</h2>
+          <ProfileInput />
+        </div>
       </div>
-      <ProfileInput />
-    </>
+    </div>
   );
 };
 

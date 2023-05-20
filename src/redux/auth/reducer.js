@@ -11,7 +11,8 @@ export default function reducer(state = initialState, action) {
         token: action.token,
         user: action.user,
         email: action.email,
-        departement: action.departement
+        departement: action.departement,
+        id: action.id //ini 2 bukan. maksud gua implementasi pas di code nya
       };
 
     case USER_LOGOUT:

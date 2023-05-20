@@ -13,6 +13,7 @@ function CreateOrderPage() {
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
   const [departement, setDepartement] = useState(null);
+  const [id, setId] = useState(null);
   const lists = useSelector((state) => state.lists);
   const [form, setForm] = useState({
     namaBarang: "",
@@ -32,20 +33,19 @@ function CreateOrderPage() {
   useEffect(() => {
     dispatch(fetchListsUserByDepartement());
     const fetchData = () => {
-      let { user, departement } = localStorage.getItem("auth")
+      let { user, departement, id } = localStorage.getItem("auth")
         ? JSON.parse(localStorage.getItem("auth"))
         : {};
 
       setUser(user);
       setDepartement(departement);
+      setId(id)
     };
     fetchData();
   }, [dispatch]);
 
   const handleChange = async (e) => {
     if (e.target.name === "UserApproveId") {
-      console.log("e.target.name");
-      console.log(e.target.name);
       setForm({ ...form, [e.target.name]: e });
     } else {
       setForm({ ...form, [e.target.name]: e.target.value });
@@ -56,15 +56,13 @@ function CreateOrderPage() {
     setIsLoading(true);
 
     const payload = {
-      UserRequestId: user,
+      // UserRequestId: user,
       namaBarang: form.namaBarang,
       kodeBarang: form.kodeBarang,
       permasalahan: form.permasalahan,
       UserApproveId: form.UserApproveId.value,
+      UserRequestId: id
     };
-
-    console.log(payload);
-    console.log("payload");
 
     await postData(`/checkout`, payload)
       .then((res) => {

@@ -10,7 +10,7 @@ import { listen } from "./redux/listener";
 import ProfilePage from "./pages/ProfilePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SidebarNew from "./components/SidebarNew";
+import Approval from "./pages/Approval";
 
 function App() {
   useEffect(() => {
@@ -31,6 +31,7 @@ function App() {
           element={<HistoryOrderDetail />}
         />
         <Route path="/profile-setting" element={<ProfilePage />} />
+        <Route path="/approval" element={<Approval />} />
       </Routes>
     </>
   );

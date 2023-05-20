@@ -35,7 +35,7 @@ function LoginPage() {
     try {
       const res = await postData("/auth/signin", form);
 
-      dispatch(userLogin(res.data.data.token, res.data.data.user, res.data.data.email, res.data.data.departement));
+      dispatch(userLogin(res.data.data.token, res.data.data.user, res.data.data.email, res.data.data.departement, res.data.data.id));
 
       setIsLoading(false);
       navigate("/dashboard");

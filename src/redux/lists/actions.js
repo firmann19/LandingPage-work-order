@@ -138,7 +138,6 @@ export const fetchListsUserByDepartement = () => {
 
     try {
       let res = await debouncedFetchListsUser("/getAllApprove");
-      console.log(res)
 
       let _temp = [];
 

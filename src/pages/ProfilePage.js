@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { postData, putData } from "../utils/fetch";

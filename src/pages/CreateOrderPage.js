@@ -12,6 +12,7 @@ function CreateOrderPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
+  const [departementId, setDepartementId] = useState(null);
   const [departement, setDepartement] = useState(null);
   const [id, setId] = useState(null);
   const lists = useSelector((state) => state.lists);
@@ -19,6 +20,7 @@ function CreateOrderPage() {
     namaBarang: "",
     kodeBarang: "",
     permasalahan: "",
+    date_requestWO: "",
     UserApproveId: 0,
   });
 
@@ -33,11 +35,12 @@ function CreateOrderPage() {
   useEffect(() => {
     dispatch(fetchListsUserByDepartement());
     const fetchData = () => {
-      let { user, departement, id } = localStorage.getItem("auth")
+      let { user, departementId, departement, id } = localStorage.getItem("auth")
         ? JSON.parse(localStorage.getItem("auth"))
         : {};
 
       setUser(user);
+      setDepartementId(departementId)
       setDepartement(departement);
       setId(id)
     };
@@ -56,13 +59,16 @@ function CreateOrderPage() {
     setIsLoading(true);
 
     const payload = {
-      // UserRequestId: user,
       namaBarang: form.namaBarang,
       kodeBarang: form.kodeBarang,
       permasalahan: form.permasalahan,
+      date_requestWO: form.date_requestWO,
       UserApproveId: form.UserApproveId.value,
-      UserRequestId: id
+      UserRequestId: id,
+      DepartUserId: departementId
     };
+    console.log(payload)
+    console.log("payload")
 
     await postData(`/checkout`, payload)
       .then((res) => {

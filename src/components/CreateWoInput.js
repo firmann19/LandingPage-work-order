@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import SButton from "./partikel/Button";
 import SelectBox from "./partikel/SelectBox";
 import { Col, Form, Row } from "react-bootstrap";
+import TextInputWithLabel from "./partikel/TextInputWithLabel";
+import { formatDate } from "../utils/formatDate";
 
 function CreateWoInput({
   form,
@@ -11,7 +13,6 @@ function CreateWoInput({
   handleSubmit,
   isLoading,
   user,
-
   departement,
 }) {
   return (
@@ -86,7 +87,10 @@ function CreateWoInput({
             </div>
           </div>
 
-          <div className="p-4 w-1/3">
+         
+
+          <div className="flex flex-wrap">
+          <div className="p-4 w-1/2">
             <div className="relative">
               <SelectBox
                 label={"Disetujui"}
@@ -97,6 +101,18 @@ function CreateWoInput({
                 options={lists.users}
                 handleChange={(e) => handleChange(e)}
               />
+            </div>
+          </div>
+            <div className=" w-1/2">
+              <div className="relative">
+                <Form.Label>Tanggal Work Order</Form.Label>
+                <TextInputWithLabel 
+                  name="date_requestWO"
+                  value={form?.date_requestWO}
+                  type="datetime-local"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
         </div>

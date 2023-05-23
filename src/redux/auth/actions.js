@@ -3,12 +3,12 @@ import {
   USER_LOGOUT,
 } from "./constants";
 
-export function userLogin(token, user, email, departement, id) {
+export function userLogin(token, user, departementId, departement, id) {
   return {
     type: USER_LOGIN,
     token,
     user,
-    email,
+    departementId,
     departement,
     id
   };

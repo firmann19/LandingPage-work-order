@@ -2,7 +2,7 @@ import { USER_LOGIN, USER_LOGOUT } from "./constants";
 
 let initialState = localStorage.getItem("auth")
   ? JSON.parse(localStorage.getItem("auth"))
-  : { token: null, user: null, email: null, departement: null };
+  : { token: null, user: null, departementId: null, departement: null, id: null };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -10,13 +10,13 @@ export default function reducer(state = initialState, action) {
       return {
         token: action.token,
         user: action.user,
-        email: action.email,
+        departementId: action.departementId,
         departement: action.departement,
-        id: action.id //ini 2 bukan. maksud gua implementasi pas di code nya
+        id: action.id //id user
       };
 
     case USER_LOGOUT:
-      return { token: null, user: null, email: null, departement: null };
+      return { token: null, user: null, departementId: null, departement: null };
 
     default:
       return state;

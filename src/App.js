@@ -27,10 +27,10 @@ function App() {
         <Route path="/complete-order" element={<CompleteOrder />} />
         <Route path="/history-order-page" element={<HistoryOrder />} />
         <Route
-          path="/history-order-detail-page"
+          path="/history-order-page/history-order-detail-page/:id"
           element={<HistoryOrderDetail />}
         />
-        <Route path="/profile-setting" element={<ProfilePage />} />
+        <Route path="/profile-setting/:id" element={<ProfilePage />} />
         <Route path="/approval" element={<Approval />} />
       </Routes>
     </>

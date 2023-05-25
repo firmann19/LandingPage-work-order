@@ -10,7 +10,7 @@ import {
 import { NavLink } from "react-router-dom";
 import LogoHTA from "../assets/image/logo-hta.png";
 
-const SidebarNew = () => {
+const SidebarNew = ({id}) => {
   const handleLogout = () => {
     localStorage.clear();
     window.location.href = "/";
@@ -47,7 +47,7 @@ const SidebarNew = () => {
               History Order
             </CDBSidebarMenuItem>
           </NavLink>
-          <NavLink exact to="/profile-setting" activeClassName="activeClicked">
+          <NavLink exact to={`/profile-setting/${id}`} activeClassName="activeClicked">
             <CDBSidebarMenuItem className="sidebar" icon="gamepad">
               Profile Setting
             </CDBSidebarMenuItem>

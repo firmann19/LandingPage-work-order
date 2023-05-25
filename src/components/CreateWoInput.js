@@ -87,26 +87,24 @@ function CreateWoInput({
             </div>
           </div>
 
-         
-
           <div className="flex flex-wrap">
-          <div className="p-4 w-1/2">
-            <div className="relative">
-              <SelectBox
-                label={"Disetujui"}
-                placeholder={"Pilih nama atasan"}
-                name="UserApproveId"
-                isClearable={true}
-                value={form.UserApproveId}
-                options={lists.users}
-                handleChange={(e) => handleChange(e)}
-              />
-            </div>
-          </div>
-            <div className=" w-1/2">
+            <div className="p-4 w-1/2">
               <div className="relative">
-                <Form.Label>Tanggal Work Order</Form.Label>
-                <TextInputWithLabel 
+                <SelectBox
+                  label={"Disetujui"}
+                  placeholder={"Pilih nama atasan"}
+                  name="UserApproveId"
+                  isClearable={true}
+                  value={form.UserApproveId}
+                  options={lists.users}
+                  handleChange={(e) => handleChange(e)}
+                />
+              </div>
+            </div>
+            <div className="p-4 w-1/2">
+              <div className="relative">
+                <TextInputWithLabel
+                  label={"Tanggal Work Order"}
                   name="date_requestWO"
                   value={form?.date_requestWO}
                   type="datetime-local"
@@ -118,7 +116,7 @@ function CreateWoInput({
         </div>
       </div>
 
-      <div className="mx-auto w-25 mt-5">
+      <div className="mx-auto w-25 mt-3">
         <Link to="/complete-order">
           <SButton
             className="w-100"

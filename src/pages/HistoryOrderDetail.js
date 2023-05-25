@@ -1,14 +1,57 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import SidebarNew from "../components/SidebarNew";
-import { Card, Form } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import HistoryWOInput from "../components/DetailWOInput";
+import { getData } from "../utils/fetch";
 
 function HistoryOrderDetail() {
+  const { id } = useParams();
+  const [form, setForm] = useState({
+    UserRequestId: 0,
+    DepartUserId: 0,
+    namaBarang: "",
+    kodeBarang: "",
+    permasalahan: "",
+    UserApproveId: 0,
+    date_requestWO: "",
+    tindakan: "",
+    gantiSparepart: "",
+    HeadITid: 0,
+    UserIT: 0,
+    date_completionWO: "",
+  });
+
+  const fetchOneWO = async () => {
+    const res = await getData(`/checkout/${id}`);
+
+    setForm({
+      ...form,
+      UserRequestId: res.data.data.getCheckout_ById.UserRequestId,
+      DepartUserId: res.data.data.getCheckout_ById.DepartUserId,
+      namaBarang: res.data.data.getCheckout_ById.namaBarang,
+      kodeBarang: res.data.data.getCheckout_ById.kodeBarang,
+      permasalahan: res.data.data.getCheckout_ById.permasalahan,
+      UserApproveId: res.data.data.getCheckout_ById.UserApproveId,
+      date_requestWO: res.data.data.getCheckout_ById.date_requestWO,
+      tindakan: res.data.data.getCheckout_ById.tindakan,
+      gantiSparepart: res.data.data.getCheckout_ById.gantiSparepart,
+      HeadITid: res.data.data.getCheckout_ById.HeadITid,
+      UserIT: res.data.data.getCheckout_ById.UserIT,
+      date_completionWO: res.data.data.getCheckout_ById.date_completionWO,
+    });
+  };
+
+  useEffect(() => {
+    fetchOneWO();
+  }, []);
+
   return (
     <div
       className="transactions-detail overflow-auto h-screen"
-      style={{ display: "flex", height: "130vh", overflow: "scroll initial" }}
+      style={{ display: "flex", height: "145vh", overflow: "scroll initial" }}
     >
       <SidebarNew />
       <div className="w-full">
@@ -19,86 +62,7 @@ function HistoryOrderDetail() {
             <h2 className="fw-bold text-xl color-palette-1 mb-20 ps-3 pt-3">
               Order Details
             </h2>
-            <div className="flex flex-wrap">
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Nama Peralatan</Form.Label>
-                  <Form.Control name="name" type="text" />
-                </div>
-              </div>
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Kode Peralatan</Form.Label>
-                  <Form.Control name="namaBarang" type="text" />
-                </div>
-              </div>
-            </div>
-
-            <div className="p-4 w-full">
-              <div className="relative">
-                <Form.Label>Permasalahan</Form.Label>
-                <Form.Control
-                  id="permasalahan"
-                  as="textarea"
-                  name="permasalahan"
-                  rows={3}
-                />
-              </div>
-            </div>
-
-            <div className="p-4 w-full">
-              <div className="relative">
-                <Form.Label>Saran Teknisi</Form.Label>
-                <Form.Control
-                  id="permasalahan"
-                  as="textarea"
-                  name="permasalahan"
-                  rows={3}
-                />
-              </div>
-            </div>
-
-            <h2 className="fw-bold text-xl color-palette-1 mb-20 ps-3 pt-3">
-              Informasi Pengguna
-            </h2>
-            <div className="flex flex-wrap">
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Nama Pengguna</Form.Label>
-                  <Form.Control name="name" type="text" />
-                </div>
-              </div>
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Departemen</Form.Label>
-                  <Form.Control name="namaBarang" type="text" />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap">
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Waktu Order</Form.Label>
-                  <Form.Control name="name" type="text" />
-                </div>
-              </div>
-              <div className="p-4 w-1/2">
-                <div className="relative">
-                  <Form.Label>Waktu Penyelesaian</Form.Label>
-                  <Form.Control name="namaBarang" type="text" />
-                </div>
-              </div>
-            </div>
-            <div className="d-md-block d-flex flex-column w-100">
-              <Link
-                className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg"
-                href="#"
-                role="button"
-              >
-                WhatsApp ke Admin
-              </Link>
-            </div>
+            <HistoryWOInput form={form} />
           </Card>
         </div>
       </div>

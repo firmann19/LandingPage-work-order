@@ -2,16 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import serviceicon from "../assets/image/service.png";
 import Navbar from "../components/Navbar";
-import SidebarNew from "../components/SidebarNew";
 import TableDashboard from "../components/TableDashboard";
 
 const DashboardPage = () => {
   return (
     <div
-      className="transactions overflow-auto h-screen"
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+      className=" transactions overflow-auto h-screen"
+      
     >
-      <SidebarNew />
       <div className="w-full">
         <Navbar />
         <div className="p-5">
@@ -31,7 +29,7 @@ const DashboardPage = () => {
             </Link>
           </div>
 
-          <TableDashboard />
+         {/* <TableDashboard /> */}
         </div>
       </div>
     </div>

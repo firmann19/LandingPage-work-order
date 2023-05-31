@@ -30,7 +30,6 @@ function TableHistoryOrder() {
             "Aksi"
           ]}
           Detail={"/history-order-page/history-order-detail-page"}
-          withoutPagination
         />
       </div>
     </div>

@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getData, putData } from "../utils/fetch";
 import ProfileInput from "../components/ProfileInput";
 import Navbar from "../components/Navbar";
-import SidebarNew from "../components/SidebarNew";
 import { toast } from "react-toastify";
 
 const ProfilePage = () => {
@@ -24,11 +22,11 @@ const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchOneUsers = async () => {
-    const res = await getData(`/user/${id}`);
+    const res = await getData(`/group/${id}`);
 
     setForm({
       ...form,
-      name: res.data.data.getUser_ById.name,
+      nama: res.data.data.getUser_ById.name,
     });
   };
 
@@ -66,11 +64,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div
-      className="overflow-auto h-screen"
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
-    >
-      <SidebarNew />
+    <div className="overflow-auto h-screen">
       <div className="w-full">
         <Navbar />
         <div>

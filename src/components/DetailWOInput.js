@@ -109,35 +109,6 @@ function HistoryWOInput({ form, lists, handleChange }) {
           </div>
         </div>
       </div>
-
-      <div className="flex flex-wrap">
-        <div className="p-4 w-1/2">
-          <div className="relative">
-            <Form.Label>Waktu Order</Form.Label>
-            <Form.Control
-              name="date_requestWO"
-              value={form?.date_requestWO}
-              type="text"
-              onChange={handleChange}
-              disabled
-              readOnly
-            />
-          </div>
-        </div>
-        <div className="p-4 w-1/2">
-          <div className="relative">
-            <Form.Label>Waktu Penyelesaian</Form.Label>
-            <Form.Control
-              name="date_completionWO"
-              value={form?.date_completionWO}
-              type="text"
-              onChange={handleChange}
-              disabled
-              readOnly
-            />
-          </div>
-        </div>
-      </div>
     </Form>
   );
 }

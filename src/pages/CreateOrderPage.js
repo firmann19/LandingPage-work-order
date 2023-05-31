@@ -6,7 +6,6 @@ import { postData } from "../utils/fetch";
 import Navbar from "../components/Navbar";
 import { fetchListsUserByDepartement } from "../redux/lists/actions";
 import { toast } from "react-toastify";
-import SidebarNew from "../components/SidebarNew";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
@@ -35,14 +34,16 @@ function CreateOrderPage() {
   useEffect(() => {
     dispatch(fetchListsUserByDepartement());
     const fetchData = () => {
-      let { user, departementId, departement, id } = localStorage.getItem("auth")
+      let { user, departementId, departement, id } = localStorage.getItem(
+        "auth"
+      )
         ? JSON.parse(localStorage.getItem("auth"))
         : {};
 
       setUser(user);
-      setDepartementId(departementId)
+      setDepartementId(departementId);
       setDepartement(departement);
-      setId(id)
+      setId(id);
     };
     fetchData();
   }, [dispatch]);
@@ -65,10 +66,10 @@ function CreateOrderPage() {
       date_requestWO: form.date_requestWO,
       UserApproveId: form.UserApproveId.value,
       UserRequestId: id,
-      DepartUserId: departementId
+      DepartUserId: departementId,
     };
-    console.log(payload)
-    console.log("payload")
+    console.log(payload);
+    console.log("payload");
 
     await postData(`/checkout`, payload)
       .then((res) => {
@@ -97,12 +98,7 @@ function CreateOrderPage() {
   };
 
   return (
-    <div
-      className="transactions overflow-auto h-screen"
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
-    >
-      <SidebarNew />
-
+    <div className="transactions overflow-auto h-screen">
       <div className="w-full">
         <Navbar />
         <div className="pt-4 responsive-form-checkout transactions mx-auto">

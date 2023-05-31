@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Approval from "./pages/Approval";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   useEffect(() => {
@@ -21,18 +22,23 @@ function App() {
     <>
       <ToastContainer />
       <Routes>
-        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/" element={<LoginPage />} />
-        <Route path="/create-order" element={<CreateOrderPage />} />
         <Route path="/complete-order" element={<CompleteOrder />} />
-        <Route path="/history-order-page" element={<HistoryOrder />} />
-        <Route
-          path="/history-order-page/history-order-detail-page/:id"
-          element={<HistoryOrderDetail />}
-        />
-        <Route path="/profile-setting/:id" element={<ProfilePage />} />
-        <Route path="/approval" element={<Approval />} />
       </Routes>
+
+      <Sidebar>
+        <Routes>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/create-order" element={<CreateOrderPage />} />
+          <Route path="/history-order-page" element={<HistoryOrder />} />
+          <Route
+            path="/history-order-page/history-order-detail-page/:id"
+            element={<HistoryOrderDetail />}
+          />
+          <Route path="/profile-setting" element={<ProfilePage />} />
+          <Route path="/approval" element={<Approval />} />
+        </Routes>
+      </Sidebar>
     </>
   );
 }

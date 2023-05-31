@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import SidebarNew from "../components/SidebarNew";
 import { Card } from "react-bootstrap";
 import HistoryWOInput from "../components/DetailWOInput";
 import { getData } from "../utils/fetch";
@@ -51,9 +50,8 @@ function HistoryOrderDetail() {
   return (
     <div
       className="transactions-detail overflow-auto h-screen"
-      style={{ display: "flex", height: "145vh", overflow: "scroll initial" }}
+      style={{ display: "flex", height: "160vh", overflow: "scroll initial" }}
     >
-      <SidebarNew />
       <div className="w-full">
         <Navbar />
 

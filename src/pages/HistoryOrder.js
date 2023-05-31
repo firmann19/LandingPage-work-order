@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import SidebarNew from "../components/SidebarNew";
 import Table from "../components/partikel/TableWithAction";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCheckouts } from "../redux/checkouts/actions";
@@ -20,7 +19,6 @@ function HistoryOrder() {
       className="transactions overflow-auto h-screen"
       style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
     >
-      <SidebarNew />
       <div className="w-full">
         <Navbar />
         <div className="p-5">

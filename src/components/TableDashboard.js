@@ -28,7 +28,6 @@ function TableDashboard() {
             "kodeBarang",
             "StatusPengerjaan",
           ]}
-          withoutPagination
         />
       </div>
     </div>

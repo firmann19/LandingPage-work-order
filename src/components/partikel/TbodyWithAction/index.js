@@ -34,7 +34,7 @@ function TbodyWithAction({
                 (key) =>
                   display.indexOf(key) > -1 && (
                     <td key={key}>
-                      {key === "date"
+                      {key === "date_requestWO" || key === "date_completionWO"
                         ? moment(data[key]).format("DD-MM-YYYY, h:mm:ss a")
                         : data[key]}
                     </td>

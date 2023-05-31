@@ -10,7 +10,7 @@ function ProfileInput({ form, handleChange, handleSubmit, isLoading }) {
         placeholder={"Masukan nama..."}
         label={"Nama Lengkap"}
         name="name"
-        value={form?.name}
+        value={form.name}
         type="text"
         onChange={handleChange}
       />

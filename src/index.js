@@ -6,6 +6,7 @@ import "./styles/utilities.css";
 import "./styles/transactions.css";
 import "./styles/pagesstyle/approval.css"
 import "./styles/transactions-detail.css";
+import "./styles/componentstyle/sidebar.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";

@@ -28,6 +28,7 @@ const DashboardPage = () => {
               </button>
             </Link>
           </div>
+          <TableDashboard />
 
          {/* <TableDashboard /> */}
         </div>

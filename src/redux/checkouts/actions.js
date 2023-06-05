@@ -3,6 +3,7 @@ import debounce from "debounce-promise";
 import { clearNotif } from "../notif/actions";
 import {
   ERROR_FETCHING_CHECKOUTS,
+  SET_PAGE,
   START_FETCHING_CHECKOUTS,
   SUCCESS_FETCHING_CHECKOUTS,
 } from "./constants";
@@ -29,7 +30,7 @@ export const errorFetchingCheckouts = () => {
 };
 
 export const fetchCheckouts = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(startFetchingCheckouts());
 
     try {
@@ -37,15 +38,45 @@ export const fetchCheckouts = () => {
         dispatch(clearNotif());
       }, 5000);
 
-      let res = await debouncedFetchCheckouts("/checkout");
+      let params = {
+        page: getState().checkouts?.page || 0,
+        size: getState().checkouts?.size || 10,
+      };
+
+      let res = await debouncedFetchCheckouts("/checkout", params);
+      console.log("Test", res);
+
+      const _temp = [];
+      console.log("array", _temp);
+
+      res.data.data.checkouts.forEach((res) => {
+        _temp.push({
+          namaBarang: res.data.data.checkouts,
+          kodeBarang: res.data.data.checkouts,
+          permasalahan: res.data.data.checkouts,
+          tindakan: res.data.data.checkouts,
+          gantiSparepart: res.data.data.checkouts,
+          UserRequestId: res.data.data.checkouts,
+          DepartUserId: res.data.data.checkouts,
+          UserApproveId: res.data.data.checkouts,
+        });
+      });
 
       dispatch(
         successFetchingCheckouts({
-          checkouts: res.data.data.getAll_checkout,
+          checkouts: _temp,
+          pages: res.data.data.pages,
         })
       );
     } catch (error) {
       dispatch(errorFetchingCheckouts());
     }
+  };
+};
+
+export const setPage = (page) => {
+  return {
+    type: SET_PAGE,
+    page,
   };
 };

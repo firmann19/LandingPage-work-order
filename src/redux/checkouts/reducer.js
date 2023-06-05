@@ -16,7 +16,7 @@ const initialState = {
   data: [],
   page: 0,
   pages: 0,
-  size: 10,
+  size: 5,
   status: statuslist.idle,
 };
 

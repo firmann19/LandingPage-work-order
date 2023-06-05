@@ -24,9 +24,9 @@ function TableDashboard() {
           data={checkouts.data}
           tbody={[
             "UserRequestId",
-            "DepartUserId",
-            "namaBarang",
             "kodeBarang",
+            "namaBarang",
+            "DepartUserId",
             "StatusPengerjaan",
           ]}
         />

@@ -40,25 +40,25 @@ export const fetchCheckouts = () => {
 
       let params = {
         page: getState().checkouts?.page || 0,
-        size: getState().checkouts?.size || 10,
+        size: getState().checkouts?.size || 5,
       };
 
       let res = await debouncedFetchCheckouts("/checkout", params);
       console.log("Test", res);
 
-      const _temp = [];
+      let _temp = [];
       console.log("array", _temp);
 
       res.data.data.checkouts.forEach((res) => {
         _temp.push({
-          namaBarang: res.data.data.checkouts,
-          kodeBarang: res.data.data.checkouts,
-          permasalahan: res.data.data.checkouts,
-          tindakan: res.data.data.checkouts,
-          gantiSparepart: res.data.data.checkouts,
-          UserRequestId: res.data.data.checkouts,
-          DepartUserId: res.data.data.checkouts,
-          UserApproveId: res.data.data.checkouts,
+          namaBarang: res.namaBarang,
+          kodeBarang: res.kodeBarang,
+          permasalahan: res.permasalahan,
+          tindakan: res.tindakan,
+          gantiSparepart: res.gantiSparepart,
+          UserRequestId: res.UserRequestId,
+          DepartUserId: res.DepartUserId,
+          UserApproveId: res.UserApproveId,
         });
       });
 

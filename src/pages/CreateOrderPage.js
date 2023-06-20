@@ -6,6 +6,7 @@ import { postData } from "../utils/fetch";
 import Navbar from "../components/Navbar";
 import { fetchListsUserByDepartement } from "../redux/lists/actions";
 import { toast } from "react-toastify";
+import { Card } from "react-bootstrap";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
@@ -98,10 +99,10 @@ function CreateOrderPage() {
   };
 
   return (
-    <div className="transactions overflow-auto h-screen">
-      <div className="w-full">
+    <div className="transactions overflow-auto h-screen" style={{height: "100vh"}}>
         <Navbar />
-        <div className="pt-4 responsive-form-checkout transactions mx-auto">
+        <div className="pt-lg-100 pb-4 responsive-form-checkout transactions mx-auto">
+          <Card style={{width: "50%"}} className="m-auto">
           <h2 className="fw-bold text-xxl color-palette-1 text-center mt-3">
             Work Order
           </h2>
@@ -117,8 +118,8 @@ function CreateOrderPage() {
               handleChangeKeyPoint={handleChangeKeyPoint}
             />
           </div>
+          </Card>
         </div>
-      </div>
     </div>
   );
 }

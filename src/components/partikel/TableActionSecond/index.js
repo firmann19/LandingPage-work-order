@@ -1,9 +1,10 @@
 import React from "react";
+import { Table } from "react-bootstrap";
 import Pagination from "../Pagination";
 import Tbody from "../TbodyWithAction";
 import Thead from "../Thead";
 
-function TableWithAction({
+function TableActionSecond({
   withoutPagination,
   handlePageClick,
   actionNotDisplay,
@@ -20,7 +21,7 @@ function TableWithAction({
 }) {
   return (
     <>
-      <table className="table table-borderless">
+      <Table striped bordered variant="light" hover>
         <Thead text={thead} />
         <Tbody
           status={status}
@@ -33,7 +34,7 @@ function TableWithAction({
           confirmationUrl={confirmationUrl}
           Detail={Detail}
         />
-      </table>
+      </Table>
       {!withoutPagination && data.length ? (
         <Pagination pages={pages} handlePageClick={handlePageClick} />
       ) : (
@@ -43,4 +44,4 @@ function TableWithAction({
   );
 }
 
-export default TableWithAction;
+export default TableActionSecond;

@@ -7,11 +7,9 @@ import HistoryOrder from "./pages/HistoryOrder";
 import HistoryOrderDetail from "./pages/HistoryOrderDetail";
 import DashboardPage from "./pages/DashboardPage";
 import { listen } from "./redux/listener";
-import ProfilePage from "./pages/ProfilePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Approval from "./pages/Approval";
-import Sidebar from "./components/Sidebar";
+import ListWO from "./pages/ListWO";
 
 function App() {
   useEffect(() => {
@@ -22,23 +20,17 @@ function App() {
     <>
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/complete-order" element={<CompleteOrder />} />
+        <Route path="/create-order" element={<CreateOrderPage />} />
+        <Route path="/history-order" element={<HistoryOrder />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/listwo" element={<ListWO />} />
+        <Route
+          path="/history-order/history-order-detail/:id"
+          element={<HistoryOrderDetail />}
+        />
       </Routes>
-
-      <Sidebar>
-        <Routes>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/create-order" element={<CreateOrderPage />} />
-          <Route path="/history-order-page" element={<HistoryOrder />} />
-          <Route
-            path="/history-order-page/history-order-detail-page/:id"
-            element={<HistoryOrderDetail />}
-          />
-          <Route path="/profile-setting" element={<ProfilePage />} />
-          <Route path="/approval" element={<Approval />} />
-        </Routes>
-      </Sidebar>
     </>
   );
 }

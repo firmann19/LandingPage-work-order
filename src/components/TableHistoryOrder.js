@@ -5,11 +5,11 @@ import { fetchCheckouts } from "../redux/checkouts/actions";
 
 function TableHistoryOrder() {
   const dispatch = useDispatch();
-  const checkouts = useSelector((state) => state.checkouts)
+  const checkouts = useSelector((state) => state.checkouts);
 
   useEffect(() => {
-    dispatch(fetchCheckouts())
-  }, [dispatch])
+    dispatch(fetchCheckouts());
+  }, [dispatch]);
 
   return (
     <div className="latest-transaction">
@@ -19,17 +19,17 @@ function TableHistoryOrder() {
       <div className="main-content main-content-table overflow-auto">
         <Table
           status={checkouts.status}
-          thead={["Nama", "Departement", "Peralatan", "Kode", "Status", "Aksi"]}
+          thead={[ "Peralatan", "Kode", "Status", "Nama", "Departement",  "Aksi"]}
           data={checkouts.data}
           tbody={[
-            "UserRequestId",
-            "DepartUserId",
+            "userName",
+            "departUser",
             "namaBarang",
             "kodeBarang",
             "StatusPengerjaan",
-            "Aksi"
+            "Aksi",
           ]}
-          Detail={"/history-order-page/history-order-detail-page"}
+          Detail={`/history-order/history-order-detail`}
         />
       </div>
     </div>

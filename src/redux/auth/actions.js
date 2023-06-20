@@ -12,7 +12,7 @@ export function userLogin(token, user, departementId, departement, id) {
     departement,
     id
   };
-} //ini 1
+}
 
 export function userLogout() {
   localStorage.removeItem("auth");

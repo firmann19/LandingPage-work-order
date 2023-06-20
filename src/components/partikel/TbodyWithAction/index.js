@@ -49,7 +49,7 @@ function TbodyWithAction({
                       size={"sm"}
                       action={() => navigate(`${editUrl}/${data.id}`)}
                     >
-                      Edit
+                      Approve
                     </Button>
                   )}
                   {confirmationUrl && (

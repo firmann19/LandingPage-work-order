@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-function TextInput({ name, value, type, onChange, placeholder }) {
+function TextInput({ name, value, type, onChange, placeholder, className }) {
   return (
     <Form.Control
       type={type}
@@ -9,6 +9,7 @@ function TextInput({ name, value, type, onChange, placeholder }) {
       value={value} // state
       placeholder={placeholder}
       onChange={onChange}
+      className={className}
     />
   );
 }

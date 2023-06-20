@@ -3,7 +3,6 @@ import debounce from "debounce-promise";
 import { clearNotif } from "../notif/actions";
 import {
   ERROR_FETCHING_CHECKOUTS,
-  SET_PAGE,
   START_FETCHING_CHECKOUTS,
   SUCCESS_FETCHING_CHECKOUTS,
 } from "./constants";
@@ -30,6 +29,33 @@ export const errorFetchingCheckouts = () => {
 };
 
 export const fetchCheckouts = () => {
+  return async (dispatch) => {
+    dispatch(startFetchingCheckouts());
+
+    try {
+      setTimeout(() => {
+        dispatch(clearNotif());
+      }, 3000);
+
+      let res = await debouncedFetchCheckouts("/checkout");
+
+      for (const element of res.data.data.getAll_checkout) {
+        element.userName = element.User.name
+        element.departUser = element.Departement.nama;
+      };
+
+      dispatch(
+        successFetchingCheckouts({
+          checkouts: res.data.data.getAll_checkout,
+        })
+      );
+    } catch (error) {
+      dispatch(errorFetchingCheckouts());
+    }
+  };
+};
+
+/* export const fetchCheckouts = () => {
   return async (dispatch, getState) => {
     dispatch(startFetchingCheckouts());
 
@@ -40,14 +66,15 @@ export const fetchCheckouts = () => {
 
       let params = {
         page: getState().checkouts?.page || 0,
-        size: getState().checkouts?.size || 5,
+        size: getState().checkouts?.size || 5, 
       };
 
-      let res = await debouncedFetchCheckouts("/checkout", params);
-      console.log("Test", res);
+      let res = await debouncedFetchCheckouts("/checkout",  params);
+      console.log("checkouts", res);
+
 
       let _temp = [];
-      console.log("array", _temp);
+      console.log("array", _temp); 
 
       res.data.data.checkouts.forEach((res) => {
         _temp.push({
@@ -72,11 +99,4 @@ export const fetchCheckouts = () => {
       dispatch(errorFetchingCheckouts());
     }
   };
-};
-
-export const setPage = (page) => {
-  return {
-    type: SET_PAGE,
-    page,
-  };
-};
+}; */

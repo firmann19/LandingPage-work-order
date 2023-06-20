@@ -6,12 +6,12 @@ import TableDashboard from "../components/TableDashboard";
 
 const DashboardPage = () => {
   return (
-    <div
-      className=" transactions overflow-auto h-screen"
-      
-    >
-      <div className="w-full">
-        <Navbar />
+    <>
+      <Navbar />
+      <div
+        className=" transactions overflow-auto h-screen"
+        style={{ height: "100vh" }}
+      >
         <div className="p-5">
           <h3 className="fw-bold pb-4">Dashboard</h3>
           <div className="kotak-order pb-5">
@@ -20,8 +20,8 @@ const DashboardPage = () => {
                 <img
                   src={serviceicon}
                   className=""
-                  alt="logo-hta"
-                  height="10"
+                  alt="create-wo"
+                  height="80"
                   width="80"
                 />
                 <p>Create Order</p>
@@ -29,11 +29,9 @@ const DashboardPage = () => {
             </Link>
           </div>
           <TableDashboard />
-
-         {/* <TableDashboard /> */}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

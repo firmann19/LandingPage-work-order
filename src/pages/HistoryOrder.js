@@ -15,12 +15,12 @@ function HistoryOrder() {
   }, [dispatch]);
 
   return (
-    <div
-      className="transactions overflow-auto h-screen"
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
-    >
-      <div className="w-full">
-        <Navbar />
+    <>
+      <Navbar />
+      <div
+        className="transactions overflow-auto h-screen"
+        style={{ height: "100vh" }}
+      >
         <div className="p-5">
           <div className="row mt-30 mb-20">
             <div className="col-lg-12 col-12 main-content">
@@ -52,7 +52,7 @@ function HistoryOrder() {
           <TableHistoryOrder />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

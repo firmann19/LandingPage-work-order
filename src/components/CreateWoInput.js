@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import SButton from "./partikel/Button";
 import SelectBox from "./partikel/SelectBox";
 import { Col, Form, Row } from "react-bootstrap";
-import TextInputWithLabel from "./partikel/TextInputWithLabel";
-import { formatDate } from "../utils/formatDate";
 
 function CreateWoInput({
   form,
@@ -16,107 +14,82 @@ function CreateWoInput({
   departement,
 }) {
   return (
-    <Form method="post" className="mx-auto w-50">
-      <div className="text-gray-700 body-font relative">
-        <div className="mx-auto">
-          <div className="flex flex-wrap">
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <Form.Label>User</Form.Label>
-                <Form.Control
-                  name="name"
-                  value={user}
-                  type="text"
-                  onChange={handleChange}
-                  disabled
-                  readOnly
-                />
-              </div>
-            </div>
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <Form.Label>Nama Peralatan</Form.Label>
-                <Form.Control
-                  name="namaBarang"
-                  value={form?.namaBarang}
-                  type="text"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-          </div>
+    <Form method="post" className="form-create-wo">
+      <Row className="mt-4 mb-4">
+        <Col className="ms-3">
+          <Form.Label>User</Form.Label>
+          <Form.Control
+            name="name"
+            value={user}
+            type="text"
+            onChange={handleChange}
+            disabled
+            readOnly
+          />
+        </Col>
 
-          <div className="flex flex-wrap">
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <Form.Label>Departement</Form.Label>
-                <Form.Control
-                  name="departement"
-                  value={departement}
-                  type="text"
-                  onChange={handleChange}
-                  disabled
-                  readOnly
-                />
-              </div>
-            </div>
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <Form.Label>Kode Peralatan</Form.Label>
-                <Form.Control
-                  name="kodeBarang"
-                  value={form?.kodeBarang}
-                  type="text"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-          </div>
+        <Col className="me-3">
+          <Form.Label>Nama Peralatan</Form.Label>
+          <Form.Control
+            name="namaBarang"
+            value={form?.namaBarang}
+            type="text"
+            onChange={handleChange}
+          />
+        </Col>
+      </Row>
 
-          <div className="p-4 w-full">
-            <div className="relative">
-              <Form.Label>Permasalahan</Form.Label>
-              <Form.Control
-                id="permasalahan"
-                as="textarea"
-                name="permasalahan"
-                rows={3}
-                value={form?.permasalahan}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+      <Row className="mt-4 mb-4">
+        <Col className="ms-3">
+          <Form.Label>Departemen</Form.Label>
+          <Form.Control
+            name="departement"
+            value={departement}
+            type="text"
+            onChange={handleChange}
+            disabled
+            readOnly
+          />
+        </Col>
 
-          <div className="flex flex-wrap">
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <SelectBox
-                  label={"Disetujui"}
-                  placeholder={"Pilih nama atasan"}
-                  name="UserApproveId"
-                  isClearable={true}
-                  value={form.UserApproveId}
-                  options={lists.users}
-                  handleChange={(e) => handleChange(e)}
-                />
-              </div>
-            </div>
-            <div className="p-4 w-1/2">
-              <div className="relative">
-                <TextInputWithLabel
-                  label={"Tanggal Work Order"}
-                  name="date_requestWO"
-                  value={form?.date_requestWO}
-                  type="datetime-local"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-          </div>
+        <Col className="me-3">
+          <Form.Label>Kode Peralatan</Form.Label>
+          <Form.Control
+            name="kodeBarang"
+            value={form?.kodeBarang}
+            type="text"
+            onChange={handleChange}
+          />
+        </Col>
+      </Row>
+
+      <Form.Group className="mb-3 ms-3 me-3">
+        <Form.Label>Permasalahan</Form.Label>
+        <Form.Control
+          id="permasalahan"
+          as="textarea"
+          name= "permasalahan"
+          rows={3}
+          value={form?.permasalahan}
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <div className="mt-4 ms-3" style={{ width: "30%" }}>
+        <div className="relative">
+          <SelectBox
+            label={"Disetujui"}
+            placeholder={"Pilih nama atasan"}
+            name="UserApproveId"
+            isClearable={true}
+            value={form.UserApproveId}
+            options={lists.users}
+            handleChange={(e) => handleChange(e)}
+          />
         </div>
       </div>
 
-      <div className="mx-auto w-25 mt-3">
+      <div className="m-auto mt-3 mb-3" style={{width: "25%"}}>
         <Link to="/complete-order">
           <SButton
             className="w-100"

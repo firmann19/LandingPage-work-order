@@ -6,7 +6,6 @@ import { fetchCheckouts } from "../redux/checkouts/actions";
 function TableDashboard() {
   const dispatch = useDispatch();
   const checkouts = useSelector((state) => state.checkouts);
-  console.log("Look",checkouts)
 
   useEffect(() => {
     dispatch(fetchCheckouts());
@@ -20,14 +19,15 @@ function TableDashboard() {
       <div className="main-content main-content-table overflow-auto">
         <Table
           status={checkouts.status}
-          thead={["Nama", "Departement", "Peralatan", "Kode", "Status"]}
+          thead={[ "Peralatan", "Kode", "Status","Nama", "Departement"]}
           data={checkouts.data}
           tbody={[
-            "UserRequestId",
-            "kodeBarang",
+            "userName",
+            "departUser",
             "namaBarang",
-            "DepartUserId",
+            "kodeBarang",
             "StatusPengerjaan",
+            "Aksi",
           ]}
         />
       </div>

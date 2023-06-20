@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import { Card } from "react-bootstrap";
 import HistoryWOInput from "../components/DetailWOInput";
 import { getData } from "../utils/fetch";
+import moment from "moment";
 
 function HistoryOrderDetail() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function HistoryOrderDetail() {
     tindakan: "",
     gantiSparepart: "",
     HeadITid: 0,
-    UserIT: 0,
+    User_IT: "",
     date_completionWO: "",
   });
 
@@ -34,12 +35,12 @@ function HistoryOrderDetail() {
       kodeBarang: res.data.data.getCheckout_ById.kodeBarang,
       permasalahan: res.data.data.getCheckout_ById.permasalahan,
       UserApproveId: res.data.data.getCheckout_ById.UserApproveId,
-      date_requestWO: res.data.data.getCheckout_ById.date_requestWO,
+      date_requestWO: moment(res.data.data.getCheckout_ById.date_requestWO).format("DD-MM-YYYY, h:mm:ss a"),
       tindakan: res.data.data.getCheckout_ById.tindakan,
       gantiSparepart: res.data.data.getCheckout_ById.gantiSparepart,
       HeadITid: res.data.data.getCheckout_ById.HeadITid,
-      UserIT: res.data.data.getCheckout_ById.UserIT,
-      date_completionWO: res.data.data.getCheckout_ById.date_completionWO,
+      User_IT: res.data.data.getCheckout_ById.User_IT,
+      date_completionWO: moment(res.data.data.getCheckout_ById.date_completionWO).format("DD-MM-YYYY, h:mm:ss a"),
     });
   };
 
@@ -50,20 +51,18 @@ function HistoryOrderDetail() {
   return (
     <div
       className="transactions-detail overflow-auto h-screen"
-      style={{ display: "flex", height: "160vh", overflow: "scroll initial" }}
     >
       <div className="w-full">
         <Navbar />
-
-        <div className="p-5">
-          <Card>
-            <h2 className="fw-bold text-xl color-palette-1 mb-20 ps-3 pt-3">
-              Order Details
-            </h2>
-            <HistoryWOInput form={form} />
-          </Card>
+        <Card style={{ width: "60%" }} className="m-auto mt-5 mb-5">
+          <Card.Body>
+            <Card.Title className="text-center mb-5">Order Details</Card.Title>
+            <HistoryWOInput
+              form={form}
+            />
+          </Card.Body>
+        </Card>
         </div>
-      </div>
     </div>
   );
 }

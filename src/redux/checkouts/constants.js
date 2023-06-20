@@ -1,5 +1,4 @@
-export const START_FETCHING_CHECKOUTS = "redux/events/START_FETCHING_CHECKOUTS";
+export const START_FETCHING_CHECKOUTS = "redux/checkouts/START_FETCHING_CHECKOUTS";
 export const SUCCESS_FETCHING_CHECKOUTS =
-  "redux/events/SUCCESS_FETCHING_CHECKOUTS";
-export const ERROR_FETCHING_CHECKOUTS = "redux/events/ERROR_FETCHING_CHECKOUTS";
-export const SET_PAGE = "redux/orders/SET_PAGE";
+  "redux/checkouts/SUCCESS_FETCHING_CHECKOUTS";
+export const ERROR_FETCHING_CHECKOUTS = "redux/checkouts/ERROR_FETCHING_CHECKOUTS";

@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import LoginImg from "../assets/image/login-page.png";
+import LoginImg from "../assets/image/computer.png";
+import LogoImg from "../assets/image/logoHTA.png";
 import LoginInput from "../components/LoginInput";
-import SAlert from "../components/partikel/Alert";
 import { userLogin } from "../redux/auth/actions";
 import { postData } from "../utils/fetch";
 
@@ -35,7 +35,15 @@ function LoginPage() {
     try {
       const res = await postData("/auth/signin", form);
 
-      dispatch(userLogin(res.data.data.token, res.data.data.user, res.data.data.departementId, res.data.data.departement, res.data.data.id));
+      dispatch(
+        userLogin(
+          res.data.data.token,
+          res.data.data.user,
+          res.data.data.departementId,
+          res.data.data.departement,
+          res.data.data.id
+        )
+      );
 
       setIsLoading(false);
       navigate("/dashboard");
@@ -50,44 +58,50 @@ function LoginPage() {
   };
 
   return (
-    <section id="loginPage" className="h-screen">
-      <div className="flex flex-col items-center lg:flex-row lg:h-full">
-        <div className="w-full self-center p-8 md:h-3/5 lg:w-2/5">
-          <div className="m-auto text-center" style={{ width: "100%" }}>
-            {alert.status && (
-              <SAlert type={alert.type} message={alert.message} />
-            )}
-          </div>
-          <h1 className="font-Philosopher font-bold text-4xl text-danger md:text-6xl lg:text-4xl text-center mb-3">
-            Login
-          </h1>
-          <p className="font-Quicksand mt-2 mb-4 md:text-lg lg:text-base text-center">
-            Please Login to continue into the application.
-          </p>
-          <LoginInput
-            form={form}
-            isLoading={isLoading}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
-          <p className="text-center font-Quicksand mt-4 md:text-lg lg:text-base">
-            Don&apos;t have an account?{" "}
-            <Link
-              className="underline text-link hover:text-linkHover"
-              to="/register-page"
-            >
-              Register
-            </Link>
-          </p>
-        </div>
-        <div className="w-full bg-slate-50 flex items-center md:h-2/5 lg:w-3/5 lg:h-full">
-          <div className="inline-block">
-            <img
-              src={LoginImg}
-              alt="login illustration image."
-              className="w-3/4 mx-auto p-4 md:w-3/5 md:p-10"
+    <section class="sign-in mx-auto">
+      <div class="row">
+        <div class="col-xxl-5 col-lg-6 my-auto py-lg-0 pt-lg-50 pb-lg-50 pt-30 pb-47 px-0">
+          <div class="container mx-auto">
+            <div class="pb-50">
+              <a class="navbar-brand" href="../index.html">
+                <img src={LogoImg} width="80" height="80" />
+              </a>
+            </div>
+            <h2 class="text-4xl fw-bold color-palette-1 mb-10">Sign In</h2>
+            <p class="text-lg color-palette-1 m-0">
+              Masuk untuk melakukan proses order
+            </p>
+            <LoginInput
+              form={form}
+              isLoading={isLoading}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
             />
+            <p className="text-center text-lg color-palette-1 m-0 mt-2">
+              Don&apos;t have an account?{" "}
+              <Link className="underline text-lg m-0" to="/register-page">
+                Register
+              </Link>
+            </p>
           </div>
+        </div>
+        <div class="col-xxl-7 col-lg-6 bg-blue text-center pt-lg-145 pb-lg-145 d-lg-block d-none">
+          <img
+            src={LoginImg}
+            width="502"
+            height="391.21"
+            class="img-fluid pb-50"
+            alt=""
+          />
+          <h2 class="text-4xl fw-bold text-white mb-30">
+            Technology wears you out.
+            <br />
+            we make you happy.
+          </h2>
+          <p class="text-white m-0">
+            Kami siap melayani apa yang Anda butuhkan
+            <br /> untuk bekerja dengan bahagia.
+          </p>
         </div>
       </div>
     </section>

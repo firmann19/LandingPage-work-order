@@ -6,16 +6,16 @@ function ApproveInput({ form, handleChange, handleSubmit, isLoading }) {
   return (
     <>
       <Card
-        className="bg-secondary"
+        className="bg-light"
         style={{ width: "30rem", height: "20rem" }}
       >
         <Card.Body>
-          <Card.Title className="fw-bold text-xl color-palette-1 text-white text-center mb-5">
-            Approval Work Order
-          </Card.Title>
-          <Form.Label htmlFor="inputPassword5" className="text-white">
-            Masukan kode Approval
-          </Form.Label>
+          <h1 className=" font-bold text-4xl text-danger text-center mb-3">
+            Approval
+          </h1>
+          <p className=" mt-2 mb-4 text-center text-black">
+            Silahkan masukan kode otp untuk <br /> persetujuan Work Order.
+          </p>
           <Form.Control
             name="otp"
             type="text"

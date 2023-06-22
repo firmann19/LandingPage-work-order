@@ -77,12 +77,6 @@ function LoginPage() {
               handleChange={handleChange}
               handleSubmit={handleSubmit}
             />
-            <p className="text-center text-lg color-palette-1 m-0 mt-2">
-              Don&apos;t have an account?{" "}
-              <Link className="underline text-lg m-0" to="/register-page">
-                Register
-              </Link>
-            </p>
           </div>
         </div>
         <div class="col-xxl-7 col-lg-6 bg-blue text-center pt-lg-145 pb-lg-145 d-lg-block d-none">

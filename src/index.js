@@ -7,6 +7,7 @@ import "./styles/complete-checkout.css"
 import "./styles/dashboard.css"
 import "./styles/transactions.css"
 import "./styles/navbar.css"
+import "./styles/approval.css"
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";

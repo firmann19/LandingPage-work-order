@@ -34,7 +34,7 @@ function ListWO() {
         await deleteData(`/checkout/${id}`).then((res) => {
           if (res.data.status === true) {
             toast.success(res.data.message);
-            navigate("/listwo-page");
+            navigate("/listwo");
           }
         });
         dispatch(fetchCheckouts());
@@ -57,14 +57,14 @@ function ListWO() {
         data={checkouts.data}
         tbody={[
           "userName",
-          "departmentName",
+          "departUser",
           "namaBarang",
           "kodeBarang",
           "StatusWO",
           "date_requestWO",
         ]}
         deleteAction={(id) => handleDelete(id)}
-       editUrl={`/listwo-page/approval`}
+       editUrl={`/listwo/approval`}
       />
     </Container>
   );

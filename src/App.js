@@ -10,6 +10,7 @@ import { listen } from "./redux/listener";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ListWO from "./pages/ListWO";
+import Approval from "./pages/Approval";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/history-order" element={<HistoryOrder />} />
         <Route path="/" element={<LoginPage />} />
         <Route path="/listwo" element={<ListWO />} />
+        <Route path="/listwo/approval/:id" element={<Approval />} />
         <Route
           path="/history-order/history-order-detail/:id"
           element={<HistoryOrderDetail />}

@@ -10,16 +10,16 @@ import moment from "moment";
 function HistoryOrderDetail() {
   const { id } = useParams();
   const [form, setForm] = useState({
-    UserRequestId: 0,
-    DepartUserId: 0,
+    UserRequestId: "",
+    DepartUserId: "",
     namaBarang: "",
     kodeBarang: "",
     permasalahan: "",
-    UserApproveId: 0,
+    UserApproveId: "",
     date_requestWO: "",
     tindakan: "",
     gantiSparepart: "",
-    HeadITid: 0,
+    HeadITid: "",
     User_IT: "",
     date_completionWO: "",
   });

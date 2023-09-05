@@ -77,7 +77,7 @@ function CreateOrderPage() {
         setNotif(
           true,
           "success",
-          `berhasil create Work Order oleh ${res.data.data.userRequest.name}`
+          `berhasil create Work Order`
         )
       );
       navigate("/complete-order");

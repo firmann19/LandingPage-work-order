@@ -6,11 +6,9 @@ import { useEffect } from "react";
 import { fetchCheckouts } from "../redux/checkouts/actions";
 import Swal from "sweetalert2";
 import { deleteData } from "../utils/fetch";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { setNotif } from "../redux/notif/actions";
 
 function ListWO() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const checkouts = useSelector((state) => state.checkouts);
 
@@ -31,13 +29,19 @@ function ListWO() {
       cancelButtonText: "Batal",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await deleteData(`/checkout/${id}`).then((res) => {
-          if (res.data.status === true) {
-            toast.success(res.data.message);
-            navigate("/listwo");
-          }
-        });
-        dispatch(fetchCheckouts());
+        if (result.isConfirmed) {
+          const res = await deleteData(`/checkout/${id}`);
+          if(res?.data?.data){
+          dispatch(
+            setNotif(
+              true,
+              "success",
+              `berhasil hapus Work Order`
+            )
+          );
+          dispatch(fetchCheckouts());
+        }
+       }
       }
     });
   };

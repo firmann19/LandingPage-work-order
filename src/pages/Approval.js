@@ -4,12 +4,11 @@ import ApproveInput from "../components/ApproveInput";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { getData, putData } from "../utils/fetch";
-import { toast } from "react-toastify";
-import SAlert from "../components/partikel/Alert";
 import { Card } from "react-bootstrap";
 import DetailApproval from "../components/DetailApproval";
-import { useDispatch } from "react-redux";
 import moment from "moment";
+import { setNotif } from "../redux/notif/actions";
+import { useDispatch } from "react-redux";
 
 function Approval() {
   const navigate = useNavigate();
@@ -41,16 +40,16 @@ function Approval() {
 
     setForm({
       ...form,
-      UserRequestId: res.data.data.getCheckout_ById.userRequest.name,
-      DepartUserId: res.data.data.getCheckout_ById.Departement.nama,
-      namaBarang: res.data.data.getCheckout_ById.namaBarang,
-      kodeBarang: res.data.data.getCheckout_ById.kodeBarang,
-      permasalahan: res.data.data.getCheckout_ById.permasalahan,
-      UserApproveId: res.data.data.getCheckout_ById.userApprove.name,
+      UserRequestId: res.data.data.userRequest.name,
+      DepartUserId: res.data.data.Departement.nama,
+      namaBarang: res.data.data.namaBarang,
+      kodeBarang: res.data.data.kodeBarang,
+      permasalahan: res.data.data.permasalahan,
+      UserApproveId: res.data.data.userApprove.name,
       date_requestWO: moment(
-        res.data.data.getCheckout_ById.date_requestWO
+        res.data.data.date_requestWO
       ).format("DD-MM-YYYY, h:mm:ss a"),
-      StatusWO: res.data.data.getCheckout_ById.StatusWO,
+      StatusWO: res.data.data.StatusWO,
     });
   };
 
@@ -77,22 +76,26 @@ function Approval() {
       StatusWO: form.StatusWO,
     };
 
-    await putData(`/statusWO/${id}`, payload)
-      .then((res) => {
-        if (res.data.status === true) {
-          toast.success(`Berhasil update Status Work Order`);
-          navigate("/listwo");
-          setIsLoading(false);
-        } else {
-          setIsLoading(true);
-          alert({
-            status: false,
-            type: "danger",
-            message: "gagal",
-          });
-        }
-      })
-      .catch((err) => console.log("ini errror", err));
+    const res = await putData(`/statusWO/${id}`, payload);
+    if (res?.data?.data) {
+      dispatch(
+        setNotif(
+          true,
+          "success",
+          `berhasil update status Work Order`
+        )
+      );
+      navigate("/listwo");
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+      setAlert({
+        ...alert,
+        status: true,
+        type: "danger",
+        message: res.response.data.msg,
+      });
+    }
   };
 
   return (

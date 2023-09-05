@@ -6,6 +6,7 @@ import { fetchCheckouts } from "../redux/checkouts/actions";
 function TableDashboard() {
   const dispatch = useDispatch();
   const checkouts = useSelector((state) => state.checkouts);
+  console.log("test", checkouts)
 
   useEffect(() => {
     dispatch(fetchCheckouts());

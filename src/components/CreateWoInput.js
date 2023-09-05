@@ -90,7 +90,6 @@ function CreateWoInput({
       </div>
 
       <div className="m-auto mt-3 mb-3" style={{width: "25%"}}>
-        <Link to="/complete-order">
           <SButton
             className="w-100"
             loading={isLoading}
@@ -100,7 +99,6 @@ function CreateWoInput({
           >
             Submit
           </SButton>
-        </Link>
       </div>
     </Form>
   );

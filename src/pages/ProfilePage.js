@@ -26,7 +26,7 @@ const ProfilePage = () => {
 
     setForm({
       ...form,
-      nama: res.data.data.getUser_ById.name,
+      nama: res.data.data.name,
     });
   };
 

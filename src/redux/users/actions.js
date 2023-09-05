@@ -42,7 +42,7 @@ export const startFetchingUsers = () => {
   
         dispatch(
           successFetchingUsers({
-            users: res.data.data.getAll_users,
+            users: res.data.data,
           })
         );
       } catch (error) {

@@ -39,14 +39,14 @@ export const fetchCheckouts = () => {
 
       let res = await debouncedFetchCheckouts("/checkout");
 
-      for (const element of res.data.data.getAll_checkout) {
+      for (const element of res.data.data) {
         element.userName = element.userRequest.name
         element.departUser = element.Departement.nama;
       };
 
       dispatch(
         successFetchingCheckouts({
-          checkouts: res.data.data.getAll_checkout,
+          checkouts: res.data.data,
         })
       );
     } catch (error) {

@@ -47,7 +47,7 @@ export const fetchListsDepartement = () => {
 
       let _temp = [];
 
-      res.data.data.getAll_users.forEach((res) => {
+      res.data.data.forEach((res) => {
         _temp.push({
           value: res.id,
           label: res.nama,
@@ -141,7 +141,7 @@ export const fetchListsUserByDepartement = () => {
 
       let _temp = [];
 
-      res.data.data.getAllApprove_users.forEach((res) => {
+      res.data.data.forEach((res) => {
         _temp.push({
           value: res.id,
           label: res.name,

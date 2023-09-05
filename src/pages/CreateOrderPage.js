@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { postData } from "../utils/fetch";
 import Navbar from "../components/Navbar";
 import { fetchListsUserByDepartement } from "../redux/lists/actions";
-import { toast } from "react-toastify";
 import { Card } from "react-bootstrap";
+import SAlert from "../components/partikel/Alert";
+import { setNotif } from "../redux/notif/actions";
 
 function CreateOrderPage() {
   const navigate = useNavigate();
@@ -69,40 +70,40 @@ function CreateOrderPage() {
       UserRequestId: id,
       DepartUserId: departementId,
     };
-    console.log(payload);
-    console.log("payload");
 
-    await postData(`/checkout`, payload)
-      .then((res) => {
-        if (res.data.status === true) {
-          toast.success(res.data.message);
-          navigate("/complete-order");
-          setIsLoading(false);
-        } else {
-          setIsLoading(true);
-          alert({
-            status: false,
-            type: "danger",
-            message: "gagal",
-          });
-        }
-      })
-      .catch((err) => console.log("ini errror", err));
-  };
-
-  const handleChangeKeyPoint = (e, i) => {
-    let _temp = [...form.keyPoint];
-
-    _temp[i] = e.target.value;
-
-    setForm({ ...form, keyPoint: _temp });
+    const res = await postData(`/checkout`, payload);
+    if (res?.data?.data) {
+      dispatch(
+        setNotif(
+          true,
+          "success",
+          `berhasil create Work Order oleh ${res.data.data.userRequest.name}`
+        )
+      );
+      navigate("/complete-order");
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+      setAlert({
+        ...alert,
+        status: true,
+        type: "danger",
+        message: res.response.data.msg,
+      });
+    }
   };
 
   return (
-    <div className="transactions overflow-auto h-screen" style={{height: "100vh"}}>
-        <Navbar />
-        <div className="pt-lg-100 pb-4 responsive-form-checkout transactions mx-auto">
-          <Card style={{width: "50%"}} className="m-auto">
+    <div
+      className="transactions overflow-auto h-screen"
+      style={{ height: "100vh" }}
+    >
+      <Navbar />
+      <div className="pt-lg-100 pb-4 responsive-form-checkout transactions mx-auto">
+        <div className="m-auto" style={{ width: "50%" }}>
+          {alert.status && <SAlert type={alert.type} message={alert.message} />}
+        </div>
+        <Card style={{ width: "50%" }} className="m-auto">
           <h2 className="fw-bold text-xxl color-palette-1 text-center mt-3">
             Work Order
           </h2>
@@ -115,11 +116,10 @@ function CreateOrderPage() {
               lists={lists}
               handleChange={handleChange}
               handleSubmit={handleSubmit}
-              handleChangeKeyPoint={handleChangeKeyPoint}
             />
           </div>
-          </Card>
-        </div>
+        </Card>
+      </div>
     </div>
   );
 }
